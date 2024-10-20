@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Public/css/frame.css">
     <link rel="stylesheet" href="./Public/css/base.css">
     <link rel="stylesheet" href="./Public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./Public/fonts/fontawesome-free-6.4.2-web/css/all.min.css"> -->
+    <link rel="stylesheet" href="./Public/fonts/fontawesome-free-6.4.2-web/css/all.min.css">đá -->
     <style>
         .large-number {
             font-size: 30px;
