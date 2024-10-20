@@ -91,6 +91,7 @@ class dssinhvien extends controller
                 $kq=$this->dssv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
                 if($kq){
                     echo "<script>alert('Them moi thanh cong!')</script>";
+                    echo "<script>window.location.href='./dssinhvien.php'</script>";
                 }
                         else {
                             echo "<script>alert('Them moi that bai!')</script>";
