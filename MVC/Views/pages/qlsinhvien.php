@@ -21,7 +21,7 @@
 <body>
    
     
-        <form method="post" action="http://localhost/KT_MVC_API/dssinhvien/timkiem">
+        <form method="post" action="http://localhost/do_an_diem/dssinhvien/timkiem">
          
             <div class="conten">
            
@@ -52,7 +52,8 @@
                         <th>Công cụ</th>
                     </tr>
                     <?php
-                    $msv=''; $tsv='';$ns='';$gt=''; $dc='';$email='';$mk=''; $kh='';
+                     $msv=''; $tsv='';$ns='';$gt=''; $dc='';$email='';$mk=''; $kh='';
+                    
                     //b3: xử lý kết quả truy vấn(hiển thị mảng $data lên bảng)
                     if(isset($data['dulieu'])&&$data['dulieu']!=null)
                 {
@@ -73,10 +74,10 @@
                             <td><?php echo $row['khoahoc'] ?></td>
                             <td>
                                 <span class="btntool btn btn-primary">
-                                    <a  href="http://localhost/KT_MVC_API/dssinhvien/sua/<?php echo $row['masinhvien']?>">Sửa</a> 
+                                    <a  href="http://localhost/do_an_diem/dssinhvien/sua/<?php echo $row['masinhvien']?>">Sửa</a> 
                                 </span> &nbsp;&nbsp;
                                 <span class="btntool btn btn-danger">
-                                    <a href="http://localhost/KT_MVC_API/dssinhvien/xoa/<?php echo $row['masinhvien']?>">Xóa</a>
+                                    <a href="http://localhost/do_an_diem/dssinhvien/xoa/<?php echo $row['masinhvien']?>">Xóa</a>
                                 </span>
                             </td>
                         </tr>
@@ -93,7 +94,7 @@
                 <div class="modal-close js-modal-close">
                 <i class="fa-solid fa-xmark"></i>
                 </div>
-                    <form method="post" action="http://localhost/KT_MVC_API/dssinhvien/themmoi" enctype="multipart/form-data">
+                    <form method="post" action="http://localhost/do_an_diem/dssinhvien/themmoi" enctype="multipart/form-data">
                     <table class="table table-borderless`">
                 <tr>
                     <td colspan="2" style="text-align: center;">
@@ -127,7 +128,7 @@
                 <tr>
                     <td class= "col1">email</td>
                     <td class="col2">
-                        <input class="form-control" type="date" name="txtemail" value="<?php echo $email ?>" style="width:450px;">
+                        <input class="form-control" type="text" name="txtemail" value="<?php echo $email ?>" style="width:450px;">
                     </td>   
                 </tr>
                 <tr>

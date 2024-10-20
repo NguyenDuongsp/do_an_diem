@@ -250,7 +250,7 @@
                         </form>
                         <div class="conten">
             <?php
-            include_once './MVC/Views/Pages/'.$data['page']. '.php';
+            include_once './MVC/Views/pages/'.$data['page']. '.php';
             ?>
         </div>
                        

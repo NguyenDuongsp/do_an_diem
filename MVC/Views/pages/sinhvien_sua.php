@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="http://localhost/KT_MVC_API/dssinhvien/sua_dl">
+<form method="post" action="http://localhost/do_an_diem/dssinhvien/sua_dl">
     <div class="conten">
         <table class="table table-striped">
             <tr>
