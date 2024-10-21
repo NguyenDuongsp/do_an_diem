@@ -478,11 +478,6 @@ for (var i = 0; i < excel.length; i++) {
   });
 }
 </script> -->
-<js>
-public static string InlineFile(string path)
-{
-      return System.IO.File.ReadAllText(path);
-}
-</js>
+
 </body>
 </html>

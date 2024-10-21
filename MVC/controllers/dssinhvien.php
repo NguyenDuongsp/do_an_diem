@@ -79,7 +79,7 @@ class dssinhvien extends controller
                 $ns = $_POST['txtngaysinh'];
                 $gt = $_POST['txtgioitinh'];
                 $dc = $_POST['txtdiachi'];
-                $em = $_POST['txtemail'];
+                $email = $_POST['txtemail'];
                 $sdt = $_POST['txtsdt'];
                 $mk = $_POST['txtmakhoa'];
                 $kh = $_POST['txtkhoahoc'];
@@ -88,9 +88,10 @@ class dssinhvien extends controller
                 echo "<script>alert('Ma sinh vien da ton tai!')</script>";
             }
             else{
-                $kq=$this->dssv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $em,$sdt, $mk, $kh);
+                $kq=$this->dssv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
                 if($kq){
                     echo "<script>alert('Them moi thanh cong!')</script>";
+                    echo "<script>window.location.href='./dssinhvien.php'</script>";
                 }
                         else {
                             echo "<script>alert('Them moi that bai!')</script>";
@@ -104,7 +105,7 @@ class dssinhvien extends controller
                         'ns'=>$ns,
                         'gt'=>$gt,
                         'dc'=>$dc,
-                        'em'=>$em,
+                        'em'=>$email,
                         'sdt'=>$sdt,
                         'mk'=>$mk,
                         'kh'=>$kh
@@ -119,11 +120,11 @@ class dssinhvien extends controller
                 $ns = $_POST['txtngaysinh'];
                 $gt = $_POST['txtgioitinh'];
                 $dc = $_POST['txtdiachi'];
-                $em = $_POST['txtemail'];
+                $email = $_POST['txtemail'];
                 $sdt = $_POST['txtsdt'];
                 $mk = $_POST['txtmakhoa'];
                 $kh = $_POST['txtkhoahoc'];
-                $kq=$this->dssv->sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $em,$sdt, $mk, $kh);
+                $kq=$this->dssv->sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
                 if($kq){
                     echo "<script>alert('Sua thanh cong!')</script>";
                 }
