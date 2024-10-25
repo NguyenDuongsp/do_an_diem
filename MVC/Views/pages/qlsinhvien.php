@@ -30,14 +30,10 @@
                         <td colspan="9" style="text-align: left;">
                             <h2>THÔNG TIN SINH VIÊN</h2>
                         </td>
-                    </tr>
-    
-                    <tr >
-                      
-                        <td colspan="9" class="cold2">
-                          
-                        </td>
-                    </tr>
+                </tr>
+                 <tr >
+                      <td colspan="9" class="cold2"></td>
+                </tr>
                     <tr >
                         <th>STT</th>
                         <th>Mã sinh viên</th>
@@ -163,11 +159,10 @@
                 </tr>
                 <tr>
                     <td class="col1">Khóa Học</td>
+                        <td class="col2">
+                             <input class="form-control" type="text" name="txtkhoahoc" value="<?php echo $kh ?>" style="width:450px;">
+                        </td> 
                     
-                    <td class="col2">
-                        <input class="form-control" type="text" name="txtkhoahoc" value="<?php echo $kh ?>" style="width:450px;">
-                    </td> 
-                    </td>
                     
                 </tr>
                 <tr>

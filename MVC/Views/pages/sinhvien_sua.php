@@ -46,8 +46,16 @@
                 <tr>
                     <td class= "col1">Giới tính </td>
                     <td class="col2">
-                        <input  type="text" name="txtgioitinh" value="<?php echo $row['gioitinh'] ?>" style="width: 450px;">
-                    </td>   
+                    <select class="form-control" name="txtgioitinh" style="width: 450px;">
+                            <option value="">--Chọn giới tính-</option>
+                            <?php
+                            $gioitinh_options = array("Nam","Nữ"); // Thay thế bằng danh sách tùy chọn thực tế
+                            foreach ($gioitinh_options as $option) {
+                                $selected = ($option == $gt) ? 'selected' : '';
+                                echo "<option value='$option' $selected>$option</option>";
+                            }
+                            ?>
+                        </select></td>   
                 </tr>
                 <tr>
                     <td class= "col1">Địa chỉ</td>
