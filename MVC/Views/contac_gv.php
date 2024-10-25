@@ -1,19 +1,4 @@
-<?php
-session_start();
-$con = mysqli_connect('localhost', 'root', '', 'diem_sinh_vien') or die('lỗi kết nối');
 
-// Kiểm tra session để xác định xem người dùng đã đăng nhập hay chưa
-if (isset($_SESSION['username'])) {
-    $tk = $_SESSION['username'];
-
-    // Truy vấn thông tin tài khoản
-    $sql = "SELECT  FROM taikhoan WHERE Email='$tk' OR SDT='$tk'";
-    $data = mysqli_query($con, $sql);
-
-    // Đóng kết nối
-    mysqli_close($con);
-} 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,23 +28,37 @@ if (isset($_SESSION['username'])) {
                         </div>
                         <ul class="menu">
                         <li class="menu__item"  > 
-                                <a href="./dieukhien.php" class="menu__item-link">
+                                <a href="./hocphan_gv_tk.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-network-wired"></i>
-                                    <span>Điều Khiển</span>
+                                    <span>Học Phần</span>
                                 </a>
                             </li>
                             <li class="menu__item"> 
-                                <a href="./baocao.php" class="menu__item-link">
+                                <a href="./quy_thongtingiangvien.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span>Báo cáo doanh số</span>
+                                        <span>Thông tin giảng viên</span>
+                                </a>
+                               
+                            </li>
+                            <li class="menu__item"> 
+                                <a href="./diem_giangvien.php" class="menu__item-link">
+                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
+                                        <span> Điểm</span>
+                                </a>
+                               
+                            </li>
+                            <li class="menu__item"> 
+                                <a href="./nhapdiem.php" class="menu__item-link">
+                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
+                                        <span> Nhập điểm </span>
                                 </a>
                                
                             </li>
                             <!-- thêm chữ s -->
                             <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/dsnv.php" class="menu__item-link">
+                                <a href="sinhvien.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-people-group fa-sm"></i>
-                                     <span>Nhân viên</span>
+                                     <span> Sinh Viên</span>
                                 </a>
                                 <!-- <ul class="sub-menu">
                                     <li class="sub-menu-item"> 
@@ -75,92 +74,8 @@ if (isset($_SESSION['username'])) {
                                 </ul> -->
                             </li>
 
-                            
-                            <li class="menu__item-s"> 
-                                <a href="#" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-boxes-stacked"></i>
-                                        <span>Quản lý sản phẩm</span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlysanpham.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-solid fa-box"></i>
-                                            <span>Sản phẩm</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/thongke_canhan2.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-regular fa-calendar-minus"></i>
-                                            <span>Cận hạn</span>
-                                        </a>
-                                    </li>  
-
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/thongke_quahan.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-regular fa-calendar-xmark"></i>
-                                            <span>Quá hạn</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu-item"> 
-                                        <a href="/KT_MVC_API/MVC/Views/Pages/qlnhanvien.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-solid fa-money-bill-transfer"></i>
-                                            <span>Thanh lý</span>
-                                           
-                                        </a>
-                                    </li>        
-                                </ul>
-
+                        
                            
-                            <li class="menu__item"  > 
-                                <a href="./nhaphang.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-dolly"></i>
-                                    <span>Nhập hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/khuyenmai.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-rug"></i>
-                                    <span>Khuyến mãi</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlynhacungcap.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-truck-moving"></i>
-                                     <span>Nhà cung cấp</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlykhachhang.php" class="menu__item-link">
-                               
-                                <i class="menu__item-link-icon  fa-solid fa-user-tie"></i>
-                                     <span>Khách hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlydonhang.php" class="menu__item-link">
-                                
-                                <i class="menu__item-link-icon fa-solid fa-floppy-disk"></i>
-                                     <span>Đơn hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/hoadon.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-receipt"></i>
-                                     <span>Hóa đơn</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/dskhohang.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-warehouse"></i>
-                                     <span>Kho hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/web_sieuthi/sieuthi/vandon2.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-truck-fast"></i>
-                                     <span>Vận đơn</span>
-                                </a>
-                            </li>
                           
                     </ul>
 
@@ -186,22 +101,18 @@ if (isset($_SESSION['username'])) {
                                   
                                     <li class="header-navbar__list-item header__navbar-user">
                                         <img src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-meo-con-than-chet-700x695.jpg" alt="" class="header__navbar-user-img">
-                                        <!-- <?php
-                                        // if (isset($data) && $data != null) {
-                                        //     while ($row = mysqli_fetch_array($data)) {
-                                                ?> -->
-                                                <span class="header__navbar-user-name">haha</span>
-                                                <!-- <?php
-                                        //     }
-                                        // }
-                                        // else{
-                                            ?> -->
-                                            <span class="header__navbar-user-name">Tài khoản</span>
-                                            <!-- <?php
-                                        // }
-                                        // ?> --> 
-
-
+                                                                                    <?php
+                                             // Kiểm tra xem người dùng đã đăng nhập chưa
+                                             if (isset($_SESSION['ten_sinhvien'])) {
+                                                $username = $_SESSION['ten_sinhvien'];
+                                             ?>
+                                                    <span class="header__navbar-user-name"><?php echo $username ?></span>
+                                             <?php
+                                                                                    }                                        
+                                                                                    
+                                           
+                                            ?>
+                                            
                                         <ul class="header__navbar-user-menu">
                                             <li class="header__navbar-user-item">
                                                 <button class="js-link'" >Tài khoản của tôi</button>
@@ -217,7 +128,6 @@ if (isset($_SESSION['username'])) {
                                 </ul>
                             </div>
                         </header>
-                        <form action="" method="post">
                         <div class="search-add-filter">
                             <div class="area-search">
                                     <input class="area-search__text" type="text" name="txttimkiem"  placeholder="Nhập thông tin tìm kiếm">
@@ -227,7 +137,7 @@ if (isset($_SESSION['username'])) {
                                 <!-- <input class="btn-tim" type="submit" name="btntim" value="tìm kiếm "> -->
                             </div>
                             
-                            <div class="add-filter">
+                            <!-- <div class="add-filter">
                                     <button class="add-item js-buy-ticket">
                                          <i class="add-item__icon fa-solid fa-plus"></i>
                                          <p class="add-item__text">Thêm</p>
@@ -244,10 +154,10 @@ if (isset($_SESSION['username'])) {
                                             </li>
                                         </ul>
                                     </div>
-                            </div>
-                          
+                            </div> -->
+
                         </div>
-                        </form>
+
                         <div class="conten">
             <?php
             include_once './MVC/Views/pages/'.$data['page']. '.php';
@@ -479,5 +389,6 @@ for (var i = 0; i < excel.length; i++) {
 }
 </script> -->
 
+  
 </body>
 </html>
