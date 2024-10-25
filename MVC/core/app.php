@@ -1,9 +1,12 @@
 <?php
+
     class app{
-        protected $Controllers='dssinhvien';
+        
+        protected $Controllers='dangnhap_c';
         protected $action='Get_data';
         protected $params=[];
         function __construct(){
+            
             $arr=$this->Urlprocess();
            // print_r($arr);
              //xử lý Controller

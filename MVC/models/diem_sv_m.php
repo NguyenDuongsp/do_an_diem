@@ -1,11 +1,14 @@
 <?php
-class sinhvien extends ketnoiDB{
-    function sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $em,$sdt, $mk, $kh){
-        $sql ="INSERT INTO  sinhvien(masinhvien,tensinhvien,ngaysinh,gioitinh,diachi,email,sdt,makhoa,khoahoc) VALUE('$msv','$tsv','$ns','$gt','$dc','$em','$sdt','$mk','$kh')";
+class diem_sv_m extends ketnoiDB{
+    function diemsinhvien_ins($msv,$mhp, $dcc, $gk,$tl, $chp, $lt){
+        $sql ="INSERT INTO  diem(masinhvien,mahocphan,diemchuyencan,giuaki,thaoluan,cuoihocphan,lanthi) VALUE('$msv','$mhp', '$dcc', '$gk','$tl', '$chp', '$lt')";
         return mysqli_query($this->con, $sql);
     }
-    function sinhvien_all(){
-        $sql="SELECT * FROM sinhvien";
+    function diemsinhvien_all($msv){
+        $sql="SELECT tenhocphan,diemchuyncan,giuaki,thaoluan,cuoihocphan,lanthi,namhoc,hocky 
+                FROM diem d join hocphan hp on d.mahocphan = hp.mahocphan
+                            join lophoc lh on lh.mahocphan = hp.mahocphan
+                            join phanconggiaovien pc on pc.malop = lh.malop where masv ='$msv'";
         return mysqli_query($this->con,$sql);
     }
     function checktrungmasv($msv){
@@ -29,10 +32,6 @@ class sinhvien extends ketnoiDB{
     function sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $em,$sdt, $mk, $kh){
         $sql="UPDATE sinhvien SET tensinhvien='$tsv', ngaysinh='$ns', gioitinh='$gt',diachi='$dc', email='$em', sdt = '$sdt', makhoa = '$mk',khoahoc = '$kh' WHERE masinhvien='$msv'";
         return mysqli_query($this->con,$sql);
-    }
-    function sinhvien1($msv){
-        $sql="SELECT  * FROM sinhvien WHERE masinhvien='$msv'";
-        return mysqli_query($this->con, $sql);
     }
 }
 ?>
