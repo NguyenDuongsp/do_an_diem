@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $con = mysqli_connect('localhost', 'root', '', 'diem_sinh_vien') or die('lỗi kết nối');
 
 // Kiểm tra session để xác định xem người dùng đã đăng nhập hay chưa
