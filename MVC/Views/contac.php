@@ -40,26 +40,40 @@ if (isset($_SESSION['username'])) {
                     <div class="area-pos">
                         <div class="logo-web">
                             <img class="logo-web__img" src="/do_an_diem/Public/img/logo5.jpg" alt="">
-                        </div>
+                            </div>
                         <ul class="menu">
                         <li class="menu__item"  > 
-                                <a href="./dieukhien.php" class="menu__item-link">
+                                <a href="./hocphan_gv_tk.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-network-wired"></i>
-                                    <span>Điều Khiển</span>
+                                    <span>Học Phần</span>
                                 </a>
                             </li>
                             <li class="menu__item"> 
-                                <a href="./baocao.php" class="menu__item-link">
+                                <a href="./quy_thongtingiangvien.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span>Báo cáo doanh số</span>
+                                        <span>Thông tin giảng viên</span>
+                                </a>
+                               
+                            </li>
+                            <li class="menu__item"> 
+                                <a href="./diem_giangvien.php" class="menu__item-link">
+                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
+                                        <span> Điểm</span>
+                                </a>
+                               
+                            </li>
+                            <li class="menu__item"> 
+                                <a href="./nhapdiem.php" class="menu__item-link">
+                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
+                                        <span> Nhập điểm </span>
                                 </a>
                                
                             </li>
                             <!-- thêm chữ s -->
                             <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/dsnv.php" class="menu__item-link">
+                                <a href="sinhvien.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-people-group fa-sm"></i>
-                                     <span>Nhân viên</span>
+                                     <span> Sinh Viên</span>
                                 </a>
                                 <!-- <ul class="sub-menu">
                                     <li class="sub-menu-item"> 
@@ -75,92 +89,8 @@ if (isset($_SESSION['username'])) {
                                 </ul> -->
                             </li>
 
-                            
-                            <li class="menu__item-s"> 
-                                <a href="#" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-boxes-stacked"></i>
-                                        <span>Quản lý sản phẩm</span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlysanpham.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-solid fa-box"></i>
-                                            <span>Sản phẩm</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/thongke_canhan2.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-regular fa-calendar-minus"></i>
-                                            <span>Cận hạn</span>
-                                        </a>
-                                    </li>  
-
-                                    <li class="sub-menu-item"> 
-                                        <a href="http://localhost/WEB_SIEUTHI/sieuthi/thongke_quahan.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-regular fa-calendar-xmark"></i>
-                                            <span>Quá hạn</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu-item"> 
-                                        <a href="/KT_MVC_API/MVC/Views/Pages/qlnhanvien.php" class="menu__item-link">
-                                        <i class="menu__item-link-icon fa-solid fa-money-bill-transfer"></i>
-                                            <span>Thanh lý</span>
-                                           
-                                        </a>
-                                    </li>        
-                                </ul>
-
+                        
                            
-                            <li class="menu__item"  > 
-                                <a href="./nhaphang.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-dolly"></i>
-                                    <span>Nhập hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/khuyenmai.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-rug"></i>
-                                    <span>Khuyến mãi</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlynhacungcap.php" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-truck-moving"></i>
-                                     <span>Nhà cung cấp</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlykhachhang.php" class="menu__item-link">
-                               
-                                <i class="menu__item-link-icon  fa-solid fa-user-tie"></i>
-                                     <span>Khách hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/Quanlydonhang.php" class="menu__item-link">
-                                
-                                <i class="menu__item-link-icon fa-solid fa-floppy-disk"></i>
-                                     <span>Đơn hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/hoadon.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-receipt"></i>
-                                     <span>Hóa đơn</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/WEB_SIEUTHI/sieuthi/dskhohang.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-warehouse"></i>
-                                     <span>Kho hàng</span>
-                                </a>
-                            </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/web_sieuthi/sieuthi/vandon2.php" class="menu__item-link">
-                                <i class="menu__item-link-icon  fa-solid fa-truck-fast"></i>
-                                     <span>Vận đơn</span>
-                                </a>
-                            </li>
                           
                     </ul>
 
@@ -190,13 +120,13 @@ if (isset($_SESSION['username'])) {
                                         // if (isset($data) && $data != null) {
                                         //     while ($row = mysqli_fetch_array($data)) {
                                                 ?> -->
-                                                <span class="header__navbar-user-name">haha</span>
+                                                <span class="header__navbar-user-name">Nguyễn Thị Lan</span>
                                                 <!-- <?php
                                         //     }
                                         // }
                                         // else{
                                             ?> -->
-                                            <span class="header__navbar-user-name">Tài khoản</span>
+                                            <!-- <span class="header__navbar-user-name">Tài khoản</span> -->
                                             <!-- <?php
                                         // }
                                         // ?> --> 
