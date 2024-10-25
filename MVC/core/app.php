@@ -1,6 +1,6 @@
 <?php
     class app{
-        protected $Controllers='dssinhvien';
+        protected $Controllers='lophoccontroller';
         protected $action='Get_data';
         protected $params=[];
         function __construct(){
