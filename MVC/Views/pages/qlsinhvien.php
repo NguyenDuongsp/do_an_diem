@@ -30,14 +30,10 @@
                         <td colspan="9" style="text-align: left;">
                             <h2>THÔNG TIN SINH VIÊN</h2>
                         </td>
-                    </tr>
-    
-                    <tr >
-                      
-                        <td colspan="9" class="cold2">
-                          
-                        </td>
-                    </tr>
+                </tr>
+                 <tr >
+                      <td colspan="9" class="cold2"></td>
+                </tr>
                     <tr >
                         <th>STT</th>
                         <th>Mã sinh viên</th>
@@ -45,14 +41,15 @@
                         <th>Ngày sinh</th>
                         <th>Giới tính</th>
                         <th>Địa chỉ</th>
-                        <th>email</th>
-                        <th>sdt</th>
+                        <th>Email</th>
+                        <th>SĐT</th>
                         <th>Mã Khoa</th>
                         <th>Khóa Học</th>
                         <th>Công cụ</th>
                     </tr>
                     <?php
-                     $msv=''; $tsv='';$ns='';$gt=''; $dc='';$email='';$mk=''; $kh='';
+                      $msv=''; $tsv='';$ns='';$gt=''; $dc='';$email='';$sdt='';$mk=''; $kh='';
+                    
                     
                     //b3: xử lý kết quả truy vấn(hiển thị mảng $data lên bảng)
                     if(isset($data['dulieu'])&&$data['dulieu']!=null)
@@ -120,20 +117,35 @@
                     </td>   
                 </tr>
                 <tr>
+                <td class="col1">Giới Tính</td>
+                    <td class="col2">
+                        <select class="form-control" name="txtgioitinh" style="width: 450px;">
+                            <option value="">--Chọn giới tính-</option>
+                            <?php
+                            $gioitinh_options = array("Nam","Nữ"); // Thay thế bằng danh sách tùy chọn thực tế
+                            foreach ($gioitinh_options as $option) {
+                                $selected = ($option == $gt) ? 'selected' : '';
+                                echo "<option value='$option' $selected>$option</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td class= "col1">Địa chỉ</td>
                     <td class="col2">
                         <input class="form-control" type="text" name="txtdiachi" value="<?php echo $dc ?>" style="width:450px;">
                     </td>   
                 </tr>
                 <tr>
-                    <td class= "col1">email</td>
+                    <td class= "col1">Email</td>
                     <td class="col2">
                         <input class="form-control" type="text" name="txtemail" value="<?php echo $email ?>" style="width:450px;">
                     </td>   
                 </tr>
                 <tr>
-                    <td class="col1">sdt</td>
-                    <td class="col2">
+                    <td class="col1">SĐT</td>
+                 
                     <td class="col2">
                         <input class="form-control" type="text" name="txtsdt" value="<?php echo $sdt ?>" style="width:450px;">
                     </td> 
@@ -147,11 +159,17 @@
                 </tr>
                 <tr>
                     <td class="col1">Khóa Học</td>
-                    <td class="col2">
-                    <td class="col2">
-                        <input class="form-control" type="text" name="txtkhoahoc" value="<?php echo $khc ?>" style="width:450px;">
-                    </td> 
-                    </td>
+                        <td class="col2">
+                             <input class="form-control" type="text" name="txtkhoahoc" value="<?php echo $kh ?>" style="width:450px;">
+                        </td> 
+                    
+                    
+                </tr>
+                <tr>
+                <td class = "col1"></td>
+                        <td class = "col2">
+                            <input  class =" btn btn-primary" type="submit"name ="btnluu" value = "Lưu" style="width:100px;">
+                        </td>
                 </tr>
             </table>
                     </form>

@@ -1,9 +1,13 @@
 <?php
+
     class app{
+
         protected $Controllers='lophoccontroller';
+
         protected $action='Get_data';
         protected $params=[];
         function __construct(){
+            
             $arr=$this->Urlprocess();
            // print_r($arr);
              //xử lý Controller

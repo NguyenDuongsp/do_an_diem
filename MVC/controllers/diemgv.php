@@ -1,46 +1,29 @@
 <?php
-
-class dssinhvien extends controller
+class diemgv extends controller
 {
-    protected $dssv;
+    protected $dsv;
     function __construct(){
-        $this->dssv=$this->model('sinhvien');
+        $this->dsv=$this->model('diem_sv_m');
     }
         function Get_data(){
-            $this->view("contac",[
-                'page'=>'qlsinhvien',
-                'msv'=>'',
-                'tsv'=>'',
-                'ns'=>'',
-                'gt'=>'',
-                'dc'=>'',
-                'em'=>'',
-                'sdt'=>'',
-                'mk'=>'',
-                'kh'=>'',
-                'dulieu'=>$this->dssv->sinhvien_timkiem('','')
+            $this->view("sv_contac",[
+                'page'=>'diem_sv',
+                'tenhp'=>'',
+                'dcc'=>'',
+                'gk'=>'',
+                'tl'=>'',
+                'chp'=>'',
+                'lt'=>'',
+                
+                'dulieu'=>$this->dsv->diemsinhvien_all($_SESSION['ma'])
             ]);
         }
-        function Get_data1(){
-            $this->view('contac',[
-                'page'=>'qlsinhvien',
-                'dulieu'=>$this->dssv->sinhvien_all(),
-                'msv'=>'',
-                'tsv'=>'',
-                'ns'=>'',
-                'gt'=>'',
-                'dc'=>'',
-                'em'=>'',
-                'sdt'=>'',
-                'mk'=>'',
-                'kh'=>''
-            ]);
-        }
+        
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];
                 $tsv=$_POST['txttensinhvien'];
-                $dl=$this->dssv->sinhvien_timkiem($msv, $tsv);
+                $dl=$this->dsv->sinhvien_timkiem($msv, $tsv);
                 $this->view("contac", [
                     'page'=>'qlsinhvien',
                     'msv'=>$msv,
@@ -51,7 +34,7 @@ class dssinhvien extends controller
            
         }
         function xoa($msv){
-            $kq=$this->dssv->sinhvien_del($msv);
+            $kq=$this->dsv->sinhvien_del($msv);
             if($kq){
                 echo "<script>alert('Xoa thanh cong!')</script>";
             }
@@ -62,11 +45,11 @@ class dssinhvien extends controller
                 'page'=>'qlsinhvien',
                 'msv'=>'',
                 'tsv'=>'',
-                'dulieu'=>$this->dssv->sinhvien_timkiem('','')
+                'dulieu'=>$this->dsv->sinhvien_timkiem('','')
             ]);
         }
         function sua($msv){
-            $dl=$this->dssv->sinhvien_timkiem($msv, '');
+            $dl=$this->dsv->sinhvien_timkiem($msv, '');
             $this->view("contac",[
                 'page'=>'sinhvien_sua',
                 'dulieu'=>$dl
@@ -84,12 +67,12 @@ class dssinhvien extends controller
                 $sdt = $_POST['txtsdt'];
                 $mk = $_POST['txtmakhoa'];
                 $kh = $_POST['txtkhoahoc'];
-            $tm=$this->dssv->checktrungmasv($msv);
+            $tm=$this->dsv->checktrungmasv($msv);
             if($tm){
                 echo "<script>alert('Ma sinh vien da ton tai!')</script>";
             }
             else{
-                $kq=$this->dssv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
+                $kq=$this->dsv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
                 if($kq){
                     echo "<script>alert('Them moi thanh cong!')</script>";
                     echo "<script>window.location.href='./dssinhvien.php'</script>";
@@ -125,7 +108,7 @@ class dssinhvien extends controller
                 $sdt = $_POST['txtsdt'];
                 $mk = $_POST['txtmakhoa'];
                 $kh = $_POST['txtkhoahoc'];
-                $kq=$this->dssv->sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
+                $kq=$this->dsv->sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
                 if($kq){
                     echo "<script>alert('Sua thanh cong!')</script>";
                 }
@@ -136,7 +119,7 @@ class dssinhvien extends controller
                     'page'=>'qlsinhvien',
                     'msv'=>'',
                     'tsv'=>'',
-                    'dulieu'=>$this->dssv->sinhvien_timkiem('','')
+                    'dulieu'=>$this->dsv->sinhvien_timkiem('','')
                 ]);
             }
         }
