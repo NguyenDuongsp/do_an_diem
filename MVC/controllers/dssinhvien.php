@@ -21,21 +21,7 @@ class dssinhvien extends controller
                 'dulieu'=>$this->dssv->sinhvien_timkiem('','')
             ]);
         }
-        function Get_data1(){
-            $this->view('contac',[
-                'page'=>'qlsinhvien',
-                'dulieu'=>$this->dssv->sinhvien_all(),
-                'msv'=>'',
-                'tsv'=>'',
-                'ns'=>'',
-                'gt'=>'',
-                'dc'=>'',
-                'em'=>'',
-                'sdt'=>'',
-                'mk'=>'',
-                'kh'=>''
-            ]);
-        }
+      
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];
