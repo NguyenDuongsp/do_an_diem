@@ -12,18 +12,35 @@ class lophoccontroller extends controller
             'page' => 'lophocview',
             'malop' => '',
             'mahocphan' => '',
-            'dulieu' => $this->lophocModel->lophoc_timkiem('', '')
+            'dulieu' => $this->lophocModel->lophoc_quygiangvien($_SESSION['ma'])
         ]);
     }
 
-    function Get_data1(){
+    function Get_data1($magiaovien) {
         $this->view('contac', [
             'page' => 'lophocview',
-            'dulieu' => $this->lophocModel->lophoc_all(),
+            'dulieu' => $this->lophocModel->lophoc_quygiangvien($magiaovien),
             'malop' => '',
             'mahocphan' => ''
         ]);
     }
+
+    //quy lan fix
+    // function getdataquy1(){
+    //     if (isset($_POST['btntimkiem'])) {
+    //         $malop = $_POST['txtmalop'];
+    //         $mahocphan = $_POST['txtmahocphan'];
+    //         $dl = $this->lophocModel->lophoc_timkiem($malop, $mahocphan);
+    //         $this->view("contac", [
+    //             'page' => 'lophocview',
+    //             'malop' => $malop,
+    //             'mahocphan' => $mahocphan,
+    //             'dulieu' => $dl
+    //         ]);
+    //     }
+    // }
+
+    // den day
 
     function timkiem(){
         if (isset($_POST['btntimkiem'])) {

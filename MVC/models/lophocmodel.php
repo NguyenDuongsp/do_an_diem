@@ -12,6 +12,15 @@ class lophocmodel extends ketnoiDB {
         $sql = "SELECT * FROM lophoc";
         return mysqli_query($this->con, $sql);
     }
+    // Lấy lớp học của giảng viên
+    function lophoc_quygiangvien($magiaovien) {
+        $sql = "SELECT l.*
+                FROM lophoc l
+                JOIN phanconggiaovien pc ON l.malop = pc.malop
+                WHERE pc.magiangvien = $magiaovien";
+        // $sql = "SELECT  FROM lophoc WHERE magiaovien = '$magiaovien'";
+        return mysqli_query($this->con, $sql);
+    }
 
     // Kiểm tra mã lớp đã tồn tại
     function checktrungmalop($malop) {

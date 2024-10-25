@@ -2,7 +2,7 @@
 
     class app{
 
-        protected $Controllers='lophoccontroller';
+        protected $Controllers='dangnhap_c';
 
         protected $action='Get_data';
         protected $params=[];
