@@ -83,7 +83,7 @@
                             </li> -->
                             <!-- thêm chữ s -->
                             <li class="menu__item"> 
-                                <a href="sinhvien_sv.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/dssinhvien/get_data/" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-people-group fa-sm"></i>
                                      <span> Sinh Viên</span>
                                 </a>

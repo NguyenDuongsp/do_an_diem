@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="http://localhost/do_an_diem/diem_sv_c/get_data">
+<form method="post" action="http://localhost/do_an_diem/diem_sv_c">
 
     <div class="conten">
         <table class="table table-striped">
