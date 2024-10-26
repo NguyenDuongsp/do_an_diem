@@ -7,6 +7,7 @@ class sinhvien extends ketnoiDB{
     function sinhvien_all(){
         $sql="SELECT * FROM sinhvien";
         return mysqli_query($this->con,$sql);
+        
     }
     function checktrungmasv($msv){
         $sql="SELECT* FROM sinhvien WHERE masinhvien= '$msv'";
@@ -33,6 +34,7 @@ class sinhvien extends ketnoiDB{
     function sinhvien1($msv){
         $sql="SELECT  * FROM sinhvien WHERE masinhvien='$msv'";
         return mysqli_query($this->con, $sql);
+        
     }
 }
 ?>
