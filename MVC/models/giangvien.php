@@ -30,5 +30,11 @@ class giangvien extends ketnoiDB {
         $sql = "UPDATE giangvien SET tengiangvien = '$tgv', ngaysinh = '$ns', gioitinh = '$gt', diachi = '$dc', email = '$em', sdt = '$sdt', ngaybatdau = '$nbd' WHERE magiangvien = '$mgv'";
         return mysqli_query($this->con, $sql);
     }
+
+    function giangvien1($msv){
+        $sql="SELECT  * FROM giangvien WHERE magiangvien='$mgv'";
+        return mysqli_query($this->con, $sql);
+    }
+
 }
 ?>
