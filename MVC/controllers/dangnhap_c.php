@@ -66,7 +66,7 @@ class diem_sv_c extends controller
         switch ($quyen) {
             case 2:
                 $view = 'contac_gv';
-                $page = 'diemgv';
+                $page = 'lophocview';
                 break;
             case 3:
                 $view = 'sv_contact';

@@ -28,7 +28,7 @@
                         </div>
                         <ul class="menu">
                         <li class="menu__item"  > 
-                                <a href="./hocphan_gv_tk.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/dangnhap_c/dangnhap_1" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-network-wired"></i>
                                     <span>Học Phần</span>
                                 </a>
