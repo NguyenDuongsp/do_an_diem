@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/timkiem">
+    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/get_data">
         <div class="conten">
             <table class="table table-striped">
                 <tr>

@@ -17,7 +17,7 @@ class lophocmodel extends ketnoiDB {
         $sql = "SELECT l.*
                 FROM lophoc l
                 JOIN phanconggiaovien pc ON l.malop = pc.malop
-                WHERE pc.magiangvien = $magiaovien";
+                WHERE pc.magiangvien = '$magiaovien'";
         // $sql = "SELECT  FROM lophoc WHERE magiaovien = '$magiaovien'";
         return mysqli_query($this->con, $sql);
     }

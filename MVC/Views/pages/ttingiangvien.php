@@ -28,6 +28,15 @@
                 <tr>
                     <td colspan="2"><h2>Thông tin giảng viên</h2></td>
                 </tr>
+                <?php
+                // Biến khởi tạo
+                
+
+                // Xử lý kết quả truy vấn (hiển thị mảng $data lên bảng)
+                if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_array($data['dulieu'])) {
+                        ?>
                 <tr>
                     <td><label for="magiangvien">Mã giảng viên:</label></td>
                     <td><input type="text" name="magiangvien" value="<?php echo isset($row["magiangvien"]) ? $row["magiangvien"] : ''; ?>" readonly></td>
@@ -60,7 +69,10 @@
                     <td><label for="ngaybatdau">Ngày bắt đầu:</label></td>
                     <td><input type="text" name="ngaybatdau" value="<?php echo isset($row["ngaybatdau"]) ? $row["ngaybatdau"] : ''; ?>" readonly></td>
                 </tr>
-                
+                <?php
+                    }
+                }
+                ?>
                 </table>
         </div>
     </form>
