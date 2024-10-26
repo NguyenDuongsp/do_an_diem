@@ -14,14 +14,10 @@
       table img{
   width: 50px;
 }
-
   </style>
 </head>
-
 <body>
-   
-    
-        <form method="post" action="http://localhost/do_an_diem/dssinhvien/timkiem">
+        <form method="post" action="http://localhost/do_an_diem/sinhvien_sv">
          
             <div class="conten">
             <table>
