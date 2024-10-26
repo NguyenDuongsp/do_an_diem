@@ -1,10 +1,10 @@
 <?php
 
-class ttingiangvien extends controller
+class giangvienx extends controller
 {
     protected $dsgv;
     function __construct(){
-        $this->dssv=$this->model('giangvien');
+        $this->dsgv=$this->model('giangvien');
     }
         function Get_data(){
             $this->view("contac_gv",[

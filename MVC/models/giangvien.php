@@ -31,7 +31,7 @@ class giangvien extends ketnoiDB {
         return mysqli_query($this->con, $sql);
     }
 
-    function giangvien1($msv){
+    function giangvien1($mgv){
         $sql="SELECT  * FROM giangvien WHERE magiangvien='$mgv'";
         return mysqli_query($this->con, $sql);
     }
