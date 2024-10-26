@@ -14,28 +14,36 @@
       table img{
   width: 50px;
 }
+
   </style>
 </head>
+
 <body>
-        <form method="post" action="http://localhost/do_an_diem/sinhvien_sv/get_data">
+   
+    
+        <form method="post" action="http://localhost/do_an_diem/giangvienx/get_data">
          
             <div class="conten">
             <table>
                 <tr>
-                    <td colspan="2"><h2>Thông tin sinh viên</h2></td>
+                    <td colspan="2"><h2>Thông tin giảng viên</h2></td>
                 </tr>
                 <?php
+                // Biến khởi tạo
+                
+
+                // Xử lý kết quả truy vấn (hiển thị mảng $data lên bảng)
                 if (isset($data['dulieu']) && $data['dulieu'] != null) {
-                        $i = 0;
-                        while ($row = mysqli_fetch_array($data['dulieu'])) {
-                    ?>
+                    $i = 0;
+                    while ($row = mysqli_fetch_array($data['dulieu'])) {
+                        ?>
                 <tr>
-                    <td><label for="masinhvien">Mã sinh viên:</label></td>
-                    <td><input type="text" name="masinhvien" value="<?php echo isset($row["masinhvien"]) ? $row["masinhvien"] : ''; ?>" readonly></td>
+                    <td><label for="magiangvien">Mã giảng viên:</label></td>
+                    <td><input type="text" name="magiangvien" value="<?php echo isset($row["magiangvien"]) ? $row["magiangvien"] : ''; ?>" readonly></td>
                 </tr>
                 <tr>
-                    <td><label for="tensinhvien">Tên sinh viên:</label></td>
-                    <td><input type="text" name="tensinhvien" value="<?php echo isset($row["tensinhvien"]) ? $row["tensinhvien"] : ''; ?>" readonly></td>
+                    <td><label for="tengiangvien">Tên giảng viên:</label></td>
+                    <td><input type="text" name="tengiangvien" value="<?php echo isset($row["tengiangvien"]) ? $row["tengiangvien"] : ''; ?>" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="ngaysinh">Ngày Sinh:</label></td>
@@ -58,21 +66,14 @@
                     <td><input type="text" name="sdt" value="<?php echo isset($row["sdt"]) ? $row["sdt"] : ''; ?>" readonly></td>
                 </tr>
                 <tr>
-                    <td><label for="makhoa">Mã Khoa:</label></td>
-                    <td><input type="text" name="makhoa" value="<?php echo isset($row["makhoa"]) ? $row["makhoa"] : ''; ?>" readonly></td>
-                </tr>
-                
-                <tr>
-                    <td><label for="khoahoc">khóa học:</label></td>
-                    <td><input type="text" name="khoahoc" value="<?php echo isset($row["khoahoc"]) ? $row["khoahoc"] : ''; ?>" readonly></td>
+                    <td><label for="ngaybatdau">Ngày bắt đầu:</label></td>
+                    <td><input type="text" name="ngaybatdau" value="<?php echo isset($row["ngaybatdau"]) ? $row["ngaybatdau"] : ''; ?>" readonly></td>
                 </tr>
                 <?php
-                        }
                     }
-                    //kết thúc b3
-                    ?>
-               
-            </table>
+                }
+                ?>
+                </table>
         </div>
     </form>
 </body>

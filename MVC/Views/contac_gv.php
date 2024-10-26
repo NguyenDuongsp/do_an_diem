@@ -34,14 +34,14 @@
                                 </a>
                             </li>
                             <li class="menu__item"> 
-                                <a href="./quy_thongtingiangvien.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/giangvienx/get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
                                         <span>Thông tin giảng viên</span>
                                 </a>
                                
                             </li>
                             <li class="menu__item"> 
-                                <a href="./diem_giangvien.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/lophoccontroller/get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
                                         <span> Điểm</span>
                                 </a>

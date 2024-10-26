@@ -10,9 +10,7 @@
 
 <body>
 <form method="post" action="">
-    <?php
-    include_once './contac_gv.php';
-    ?>
+   
     <div class="conten">
         <table class="table table-striped">
             <tr>
