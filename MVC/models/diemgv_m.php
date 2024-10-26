@@ -4,16 +4,12 @@ class diem_sv_m extends ketnoiDB{
 
 
 
-function ttgv($hocki,$lop,$khoahoc,$khoa,$hocphan){
+function ttgv($mgv){
     
-        $sql = "SELECT Distinct * FROM  hocphan, diem, sinhvien
+        $sql = "SELECT tenhocphan,malop,namhoc,hocky FROM  lophoc lh join hocphan hp on lh.mahocphan = hp.mahocphan
+                                                                     join phanconggiangvien pc on pc.malop=lp.malop
                 WHERE 
-                hocphan.namhoc_hocki = '$hocki'
-                And sinhvien.lop ='$lop'
-                and sinhvien.khoahoc = '$khoahoc'
-               and sinhvien.khoa ='$khoa'
-                and hocphan.tenhocphan = '$hocphan'
-               and sinhvien.masinhvien = diem.masinhvien
+                mangiangvien = $mgv
   AND hocphan.mahocphan = diem.mahocphan;";
  
                 
