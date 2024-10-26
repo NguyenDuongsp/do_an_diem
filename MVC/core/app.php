@@ -3,7 +3,7 @@
     class app{
 
         
-        protected $Controllers='dangnhap_c';
+        protected $Controllers='sinhvien_sv';
 
         protected $action='Get_data';
         protected $params=[];
