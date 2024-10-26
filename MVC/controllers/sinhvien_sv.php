@@ -2,12 +2,12 @@
 
 class sinhvien_sv extends controller
 {
-    protected $dssv;
+    protected $sv;
     function __construct(){
-        $this->dssv=$this->model('sinhvien');
+        $this->sv=$this->model('sinhvien');
     }
         function Get_data(){
-            $this->view("contac",[
+            $this->view("sv_contact",[
                 'page'=>'sinhvien_sv',
                 'msv'=>'',
                 'tsv'=>'',
@@ -18,7 +18,7 @@ class sinhvien_sv extends controller
                 'sdt'=>'',
                 'mk'=>'',
                 'kh'=>'',
-                'dulieu'=>$this->dssv->sinhvien1($_SESSION['ma'])
+                'dulieu'=>$this->sv->sinhvien1($_SESSION['ma'])
             ]);
         }
     }

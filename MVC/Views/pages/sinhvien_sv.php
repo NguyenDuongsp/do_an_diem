@@ -17,13 +17,18 @@
   </style>
 </head>
 <body>
-        <form method="post" action="http://localhost/do_an_diem/sinhvien_sv">
+        <form method="post" action="http://localhost/do_an_diem/sinhvien_sv/get_data">
          
             <div class="conten">
             <table>
                 <tr>
                     <td colspan="2"><h2>Thông tin sinh viên</h2></td>
                 </tr>
+                <?php
+                if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                        $i = 0;
+                        while ($row = mysqli_fetch_array($data['dulieu'])) {
+                    ?>
                 <tr>
                     <td><label for="masinhvien">Mã sinh viên:</label></td>
                     <td><input type="text" name="masinhvien" value="<?php echo isset($row["masinhvien"]) ? $row["masinhvien"] : ''; ?>" readonly></td>
@@ -61,7 +66,11 @@
                     <td><label for="khoahoc">khóa học:</label></td>
                     <td><input type="text" name="khoahoc" value="<?php echo isset($row["khoahoc"]) ? $row["khoahoc"] : ''; ?>" readonly></td>
                 </tr>
-                
+                <?php
+                        }
+                    }
+                    //kết thúc b3
+                    ?>
                
             </table>
         </div>

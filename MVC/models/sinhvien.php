@@ -34,6 +34,7 @@ class sinhvien extends ketnoiDB{
     function sinhvien1($msv){
         $sql="SELECT  * FROM sinhvien WHERE masinhvien='$msv'";
         return mysqli_query($this->con, $sql);
+        
     }
 }
 ?>
