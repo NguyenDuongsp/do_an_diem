@@ -68,8 +68,14 @@ class dssinhvien extends controller
             ]);
         }
         function themmoi(){
+            $this->view("contac",[
+                'page'=>'qlsinhvien',
+                        
+                        'khoa'=> $this->dssv->makhoa()
+                    ]);
             if(isset($_POST['btnluu']))
         {
+           
             $msv = $_POST['txtmasinhvien'];
                 $tsv = $_POST['txttensinhvien'];
                 $ns = $_POST['txtngaysinh'];
@@ -95,19 +101,7 @@ class dssinhvien extends controller
                         }
             }
             
-                    $this->view("contac", [
-                        'page'=>'qlsinhvien',
-                        'msv'=>$msv,
-                        'tsv'=>$tsv,
-                        'ns'=>$ns,
-                        'gt'=>$gt,
-                        'dc'=>$dc,
-                        'em'=>$email,
-                        'sdt'=>$sdt,
-                        'mk'=>$mk,
-                        'kh'=>$kh,
-                        'khoa'=> $this->dssv->makhoa()
-                    ]);
+                    
         }
     }
         function sua_dl(){
