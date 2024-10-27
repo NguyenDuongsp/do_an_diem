@@ -17,7 +17,7 @@ class lophocmodel extends ketnoiDB {
         $sql = "SELECT l.*
                 FROM lophoc l
                 JOIN phanconggiaovien pc ON l.malop = pc.malop
-                WHERE pc.magiangvien = $magiaovien";
+                WHERE pc.magiangvien = '$magiaovien'";
         // $sql = "SELECT  FROM lophoc WHERE magiaovien = '$magiaovien'";
         return mysqli_query($this->con, $sql);
     }
@@ -29,11 +29,7 @@ class lophocmodel extends ketnoiDB {
         return mysqli_num_rows($data) > 0; // Trả về true nếu có kết quả
     }
 
-    // Tìm kiếm lớp học
-    function lophoc_timkiem($malop, $mahocphan) {
-        $sql = "SELECT * FROM lophoc WHERE malop LIKE '%$malop%' OR mahocphan LIKE '%$mahocphan%'";
-        return mysqli_query($this->con, $sql);
-    }
+    
 
     // Xóa lớp học
     function lophoc_del($malop) {
@@ -42,9 +38,45 @@ class lophocmodel extends ketnoiDB {
     }
 
     // Cập nhật lớp học
-    function lophoc_upd($malop, $mahocphan) {
+    function lophoc_upd($malop,$mahocphan) {
         $sql = "UPDATE lophoc SET mahocphan='$mahocphan' WHERE malop='$malop'";
         return mysqli_query($this->con, $sql);
+    }
+    // Tìm kiếm lớp học
+    function lophoc_timkiem($malop, $mahocphan) {
+        $sql = "SELECT * FROM lophoc WHERE malop LIKE '%$malop%' ";
+        return mysqli_query($this->con, $sql);
+    }
+
+    // sửa lớp học
+    function lophoc_sua($malop) {
+        $sql = "SELECT * FROM lophoc WHERE malop LIKE '%$malop%' ";
+        return mysqli_query($this->con, $sql);
+    }
+
+    function lophoc_quysinhvien($masinhvien) {
+        $sql = "SELECT l.*, h.tenhocphan
+                FROM lophoc l
+                JOIN diem d ON l.mahocphan = d.mahocphan
+                JOIN hocphan h ON l.mahocphan = h.mahocphan
+                WHERE d.masv = '$masinhvien';";
+        // $sql = "SELECT  FROM lophoc WHERE magiaovien = '$magiaovien'";
+        return mysqli_query($this->con, $sql);
+    }
+
+    //học phần combobox
+    
+    function getHocPhanList() {
+        $sql = "SELECT mahocphan, tenhocphan FROM hocphan";
+        $result = mysqli_query($this->con, $sql);
+        
+        $hocphanList = [];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $hocphanList[] = $row; // Lưu từng bản ghi vào mảng
+            }
+        }
+        return $hocphanList; // Trả về mảng chứa danh sách học phần
     }
 }
 ?>

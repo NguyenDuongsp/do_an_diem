@@ -1,19 +1,4 @@
-<?php
 
-$con = mysqli_connect('localhost', 'root', '', 'diem_sinh_vien') or die('lỗi kết nối');
-
-// Kiểm tra session để xác định xem người dùng đã đăng nhập hay chưa
-if (isset($_SESSION['username'])) {
-    $tk = $_SESSION['username'];
-
-    // Truy vấn thông tin tài khoản
-    $sql = "SELECT  FROM taikhoan WHERE Email='$tk' OR SDT='$tk'";
-    $data = mysqli_query($con, $sql);
-
-    // Đóng kết nối
-    mysqli_close($con);
-} 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,20 +101,17 @@ if (isset($_SESSION['username'])) {
                                   
                                     <li class="header-navbar__list-item header__navbar-user">
                                         <img src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-meo-con-than-chet-700x695.jpg" alt="" class="header__navbar-user-img">
-                                        <!-- <?php
-                                        // if (isset($data) && $data != null) {
-                                        //     while ($row = mysqli_fetch_array($data)) {
-                                                ?> -->
-                                                <span class="header__navbar-user-name">Nguyễn Thị Lan</span>
-                                                <!-- <?php
-                                        //     }
-                                        // }
-                                        // else{
-                                            ?> -->
-                                            <!-- <span class="header__navbar-user-name">Tài khoản</span> -->
-                                            <!-- <?php
-                                        // }
-                                        // ?> --> 
+                                        <?php
+                                             // Kiểm tra xem người dùng đã đăng nhập chưa
+                                             if (isset($_SESSION['ten_sinhvien'])) {
+                                                $username = $_SESSION['ten_sinhvien'];
+                                             ?>
+                                                    <span class="header__navbar-user-name"><?php echo $username ?></span>
+                                             <?php
+                                                                                    }                                        
+                                                                                    
+                                           
+                                            ?>
 
 
                                         <ul class="header__navbar-user-menu">

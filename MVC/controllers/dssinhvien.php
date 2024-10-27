@@ -1,5 +1,4 @@
 <?php
-
 class dssinhvien extends controller
 {
     protected $dssv;
@@ -18,10 +17,11 @@ class dssinhvien extends controller
                 'sdt'=>'',
                 'mk'=>'',
                 'kh'=>'',
-                'dulieu'=>$this->dssv->sinhvien_timkiem('','')
+                'dulieu'=>$this->dssv->sinhvien_timkiem('',''),
+                'khoa'=> $this->dssv->makhoa()
             ]);
         }
-      
+        
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];
@@ -51,6 +51,15 @@ class dssinhvien extends controller
                 'dulieu'=>$this->dssv->sinhvien_timkiem('','')
             ]);
         }
+
+        function xem($mk){
+            $dl=$this->dssv->sinhvien_timkiem($mk, '');
+            $this->view("contac",[
+                'page'=>'qlssinhvien',
+                'dulieu'=>$dl
+            ]);
+        }
+
         function sua($msv){
             $dl=$this->dssv->sinhvien_timkiem($msv, '');
             $this->view("contac",[
@@ -59,8 +68,14 @@ class dssinhvien extends controller
             ]);
         }
         function themmoi(){
+            $this->view("contac",[
+                'page'=>'qlsinhvien',
+                        
+                        'khoa'=> $this->dssv->makhoa()
+                    ]);
             if(isset($_POST['btnluu']))
         {
+           
             $msv = $_POST['txtmasinhvien'];
                 $tsv = $_POST['txttensinhvien'];
                 $ns = $_POST['txtngaysinh'];
@@ -71,6 +86,7 @@ class dssinhvien extends controller
                 $mk = $_POST['txtmakhoa'];
                 $kh = $_POST['txtkhoahoc'];
             $tm=$this->dssv->checktrungmasv($msv);
+            
             if($tm){
                 echo "<script>alert('Ma sinh vien da ton tai!')</script>";
             }
@@ -85,18 +101,7 @@ class dssinhvien extends controller
                         }
             }
             
-                    $this->view("contac", [
-                        'page'=>'qlsinhvien',
-                        'msv'=>$msv,
-                        'tsv'=>$tsv,
-                        'ns'=>$ns,
-                        'gt'=>$gt,
-                        'dc'=>$dc,
-                        'em'=>$email,
-                        'sdt'=>$sdt,
-                        'mk'=>$mk,
-                        'kh'=>$kh
-                    ]);
+                    
         }
     }
         function sua_dl(){

@@ -31,6 +31,11 @@ class dangnhap_c extends controller
                     $ma = $userData['taikhoan'];
                     $_SESSION['ma'] = $ma;
                 }
+                else{
+                    $tenSinhVien = $userData['tengiangvien'];
+                    $ma = $userData['taikhoan'];
+                    $_SESSION['ma'] = $ma;
+                }
                 // Lấy tên sinh viên từ thông tin người dùng
                 
 
@@ -69,10 +74,15 @@ class diem_sv_c extends controller
 
                 $page = 'diemgv_v';
 
+
                 break;
             case 3:
                 $view = 'sv_contact';
                 $page = 'diem_sv';
+                break;
+            case 1:
+                $view = 'contac';
+                $page = 'lophocview';
                 break;
             default:
                 // Xử lý cho các trường hợp khác nếu cần
