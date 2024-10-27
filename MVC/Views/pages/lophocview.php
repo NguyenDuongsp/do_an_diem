@@ -60,7 +60,10 @@
                                     <a href="http://localhost/do_an_diem/lophoccontroller/xoa/<?php echo $row['malop'] ?>">Xóa</a>
                                 </span> &nbsp;&nbsp;
                                 <span class="btntool btn btn-success">
-                                    <a href="http://localhost/do_an_diem/lophoccontroller/chuyenhuong?mahocphan=<?php echo $row['mahocphan'] ?>">Chi tiết</a>
+                                    <a href="http://localhost/do_an_diem/dssinhvien/sv_lop/<?php echo $row['malop'] ?>">Chi tiết</a>
+                                </span>
+                                <span class="btntool btn btn-success">
+                                    <a href="http://localhost/do_an_diem/diemgv/diemsinhvien_lop2/<?php echo $row['malop'] ?>">Nhập Điểm</a>
                                 </span>
                             </td>
                         </tr>
@@ -77,7 +80,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <form method="post" action="http://localhost/do_an_diem/lophoccontroller/themmoi" enctype="multipart/form-data">
-            <table class="table table-borderless">
+                <table class="table table-borderless">
                 <tr>
                     <td colspan="2" style="text-align: center;">
                         <h5>CẬP NHẬT THÔNG TIN LỚP HỌC</h5>
@@ -86,7 +89,7 @@
                 <tr>
                     <td class="col1">Mã Lớp</td>
                     <td class="col2">
-                        <input class="form-control" type="text" name="txtmalop" value="<?php echo $malop; ?>" style="width:450px;">
+                        <input class="form-control" type="text" name="txtmalop" value="" style="width:450px;">
                     </td>
                 </tr>
                 <tr>
@@ -95,20 +98,55 @@
                         <select class="form-control" name="txtmahocphan" style="width:450px;">
                             <option value="">--Chọn mã học phần--</option>
                             <?php
-                            // Sử dụng biến $mahp đã được truyền từ controller
-                            foreach ($mahp as $row) {
-                                $selected = ($row['mahocphan'] == $mahocphan) ? 'selected' : '';
-                                echo "<option value='" . $row['mahocphan'] . "' $selected>" . $row['tenhocphan'] . " (" . $row['mahocphan'] . ")</option>";
+                            // Tạo các tùy chọn từ HP01 đến HP40
+                            for ($i = 1; $i <= 40; $i++) {
+                                // Định dạng mã học phần (HP01, HP02, ..., HP40)
+                                $mahp = 'HP' . str_pad($i, 2, '0', STR_PAD_LEFT);
+                                
+                                // Kiểm tra mã học phần đã được chọn hay chưa
+                                $selected = ($mahp == $mahocphan) ? 'selected' : '';
+                                
+                                // In tùy chọn vào dropdown
+                                echo "<option value='$mahp' $selected>$mahp</option>";
                             }
                             ?>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    <td class="col1">Mã Giảng Viên</td>
+                    <td class="col2">
+                        <select class="form-control" name="txtmagiangvien" style="width:450px;">
+                            <option value="">--Chọn mã giảng viên--</option>
+                            <?php
+                            // Tạo các tùy chọn từ GV001 đến GV019
+                            for ($i = 1; $i <= 19; $i++) {
+                                $magiangvien = 'GV' . str_pad($i, 3, '0', STR_PAD_LEFT); // Định dạng mã giảng viên
+                                $selected = ($magiangvien == $magiaovien) ? 'selected' : ''; // Kiểm tra mã giảng viên đã được chọn hay chưa
+                                echo "<option value='$magiangvien' $selected>$magiangvien</option>";
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
+                <tr>
+                    <td class="col1">Năm Học</td>
+                    <td class="col2">
+                        <input class="form-control" type="text" name="txtnamhoc" value="" style="width:450px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">Học Kỳ</td>
+                    <td class="col2">
+                        <input class="form-control" type="text" name="txthocky" value="" style="width:450px;">
+                    </td>
+                </tr>
+                <tr>
+                        <td class="col1"></td>
+                        <td class="col2">
+                            <input class="btn btn-primary" type="submit" name="btnluu" value="Lưu" style="width:100px;">
+                        </td>
+                    </tr>
             </table>
         </form>
         </div>

@@ -21,7 +21,7 @@
 
 <body>
 
-    <form method="post" action="http://localhost/do_an_diem/dssinhvien/Get_data">
+    <form method="post" action="http://localhost/do_an_diem/dssinhvien/sv_lop">
         <div class="content">
             <table class="table table-striped">
                 <tr>

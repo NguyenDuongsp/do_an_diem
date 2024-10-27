@@ -60,7 +60,7 @@
                                     <a href="http://localhost/do_an_diem/lophoccontroller/xoa/<?php echo $row['malop'] ?>">Xóa</a>
                                 </span> &nbsp;&nbsp; -->
                                 <span class="btntool btn btn-success">
-                                    <a href="http://localhost/do_an_diem/lophoccontroller/chuyenhuong?mahocphan=<?php echo $row['mahocphan'] ?>">Chi tiết</a>
+                                <a href="http://localhost/do_an_diem/diemgv/diemsinhvien_lop1/<?php echo $row['malop'] ?>">Nhập điểm</a>
                                 </span>
                             </td>
                         </tr>

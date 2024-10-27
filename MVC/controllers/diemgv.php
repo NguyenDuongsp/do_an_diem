@@ -20,7 +20,20 @@ class diemgv extends controller
                 
             ]);
         }
-          function diemsinhvien_lop($malop){
+        function diemsinhvien_lop2($malop){
+            $dl = $this->dgv->diemsinhvien_lop($malop);
+        $this->view("contac", [
+            'page' => 'diemgv_v',
+            'tenhp' => '',
+                'dcc' => '',
+                'gk' => '',
+                'tl' => '',
+                'chp' => '',
+                'lt' => '',
+            'dulieu' => $dl
+        ]);
+        }
+          function diemsinhvien_lop1($malop){
             $dl = $this->dgv->diemsinhvien_lop($malop);
         $this->view("contac_gv", [
             'page' => 'diemgv_v',
@@ -69,7 +82,7 @@ class diemgv extends controller
     
                         if ($kq) {
                             echo "<script>alert('Thành công!')</script>";
-                            echo "<script>window.location.href='./dssinhvien.php'</script>";
+                            echo "<script>window.location.href='http://localhost/do_an_diem/diemgv/diemsinhvien_lop2'</script>";
                         }
                     } catch (Exception $e) {
                         $errorMessage = $e->getMessage();

@@ -28,39 +28,52 @@
                 <tr>
                     <td colspan="2"><h2>Thông tin giảng viên</h2></td>
                 </tr>
+                <?php
+                // Biến khởi tạo
+                $malop = '';
+                $mahocphan = '';
+
+                // Xử lý kết quả truy vấn (hiển thị mảng $data lên bảng)
+                if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_array($data['dulieu'])) {
+                        ?>
                 <tr>
                     <td><label for="magiangvien">Mã giảng viên:</label></td>
-                    <td><input type="text" name="magiangvien" value="<?php echo isset($row["magiangvien"]) ? $row["magiangvien"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="magiangvien" value="<?php echo isset($row["magiangvien"]) ? $row["magiangvien"] : ''; ?>" style="width: 80%;" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="tengiangvien">Tên giảng viên:</label></td>
-                    <td><input type="text" name="tengiangvien" value="<?php echo isset($row["tengiangvien"]) ? $row["tengiangvien"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="tengiangvien" value="<?php echo isset($row["tengiangvien"]) ? $row["tengiangvien"] : ''; ?>"style="width: 80%;" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="ngaysinh">Ngày Sinh:</label></td>
-                    <td><input type="date" name="ngaysinh" value="<?php echo isset($row["ngaysinh"]) ? $row["ngaysinh"] : ''; ?>"readonly></td>
+                    <td><input type="date" name="ngaysinh" value="<?php echo isset($row["ngaysinh"]) ? $row["ngaysinh"] : ''; ?>"style="width: 80%;"readonly></td>
                 </tr>
                 <tr>
                     <td><label for="gioitinh">Giới tính:</label></td>
-                    <td><input type="text" name="gioitinh" value="<?php echo isset($row["gioitinh"]) ? $row["gioitinh"] : ''; ?>"readonly></td>
+                    <td><input type="text" name="gioitinh" value="<?php echo isset($row["gioitinh"]) ? $row["gioitinh"] : ''; ?>"style="width: 80%;"readonly></td>
                 </tr>
                 <tr>
                     <td><label for="diachi">Địa chỉ:</label></td>
-                    <td><input type="text" name="diachi" value="<?php echo isset($row["diachi"]) ? $row["diachi"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="diachi" value="<?php echo isset($row["diachi"]) ? $row["diachi"] : ''; ?>"style="width: 80%;" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="email">Email:</label></td>
-                    <td><input type="text" name="email" value="<?php echo isset($row["email"]) ? $row["email"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="email" value="<?php echo isset($row["email"]) ? $row["email"] : ''; ?>" style="width: 80%;"readonly></td>
                 </tr>
                 <tr>
                     <td><label for="sdt">Số điện thoại:</label></td>
-                    <td><input type="text" name="sdt" value="<?php echo isset($row["sdt"]) ? $row["sdt"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="sdt" value="<?php echo isset($row["sdt"]) ? $row["sdt"] : ''; ?>"style="width: 80%;"readonly></td>
                 </tr>
                 <tr>
                     <td><label for="ngaybatdau">Ngày bắt đầu:</label></td>
-                    <td><input type="text" name="ngaybatdau" value="<?php echo isset($row["ngaybatdau"]) ? $row["ngaybatdau"] : ''; ?>" readonly></td>
+                    <td><input type="text" name="ngaybatdau" value="<?php echo isset($row["ngaybatdau"]) ? $row["ngaybatdau"] : ''; ?>"style="width: 80%;" readonly></td>
                 </tr>
-                
+                <?php        
+                        }
+                    }
+                ?>
                 </table>
                 
         </div>

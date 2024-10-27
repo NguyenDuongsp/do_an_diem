@@ -119,24 +119,29 @@ class lophoccontroller extends controller
         if (isset($_POST['btnluu'])) {
             $malop = $_POST['txtmalop'];
             $mahocphan = $_POST['txtmahocphan'];
+            $magiangvien = $_POST['txtmagiangvien'];
             // $tenhocphan = $_POST['txttenhocphan'];
-
+            $nh= $_POST['txtnamhoc'];
+            $hk = $_POST['txthocky'];
             $tm = $this->lophocModel->checktrungmalop($malop);
             if ($tm) {
                 echo "<script>alert('Mã lớp đã tồn tại!')</script>";
             } else {
-                $kq = $this->lophocModel->lophoc_ins($malop, $mahocphan);
-                if ($kq) {
+                $kq = $this->lophocModel->lophoc_ins1($malop, $mahocphan);
+                $kq2 = $this->lophocModel->lophoc_ins2($magiangvien, $malop,$nh,$hk);
+                if ($kq and $kq2) {
                     echo "<script>alert('Thêm mới thành công!')</script>";
+                    echo "<script>window.location.href='http://localhost/do_an_diem/lophoccontroller/Get_data_admin'</script>";
                 } else {
                     echo "<script>alert('Thêm mới thất bại!')</script>";
+                    
                 }
             }
 // sửa ở đây nữa
 
 
-            $this->view("sv_contact", [
-                'page' => 'lophoc_themmoi',
+            $this->view("contact", [
+                'page' => 'lophocview',
                 'malop' => $malop,
                 'mahocphan' => $mahocphan
             ]);

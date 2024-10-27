@@ -27,6 +27,14 @@ class sinhvien extends ketnoiDB
         $sql = "SELECT makhoa FROM khoa";
         return mysqli_query($this->con, $sql);
     }
+    function sv_lop($malop)
+    {
+        // Truy vấn để lấy ra mã khoa từ bảng khoa
+        $sql = "SELECT * FROM sinhvien sv join diem d on sv.masinhvien = d.masv
+                                        join hocphan hp on hp.mahocphan = d.mahocphan
+                                        join lophoc l on l.mahocphan = hp.mahocphan where l.malop = '$malop'";
+        return mysqli_query($this->con, $sql);
+    }
     function sinhvien_xem()
     {
         if (isset($_POST['btnxem'])) {

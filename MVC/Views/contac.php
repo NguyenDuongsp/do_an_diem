@@ -48,7 +48,7 @@
                                
                             </li>
                             <li class="menu__item"> 
-                                <a href="http://localhost/do_an_diem/dsgiangvien" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/lophoccontroller/Get_data_admin" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
                                         <span> Lớp Học </span>
                                 </a>

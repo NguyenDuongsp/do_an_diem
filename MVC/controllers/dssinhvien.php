@@ -17,11 +17,18 @@ class dssinhvien extends controller
                 'sdt'=>'',
                 'mk'=>'',
                 'kh'=>'',
-                'dulieu'=>$this->dssv->sinhvien_timkiem('',''),
+                
                 'khoa'=> $this->dssv->makhoa()
             ]);
         }
-        
+        function sv_lop($malop){
+            $this->view("contac",[
+                'page'=>'qlsinhvien',
+                
+                'dulieu'=>$this->dssv->sv_lop($malop),
+                
+            ]);
+        }
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];

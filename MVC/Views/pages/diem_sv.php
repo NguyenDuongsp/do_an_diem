@@ -76,18 +76,26 @@
                             $diemchu = '';
                             if ($tongDiem >= 4.0) {
                                 $danhGia = 'Đạt';
-                            } elseif ($tongDiem < 4) {
+                            } elseif ($tongDiem < 4  ) {
                                 $danhGia = 'Không đạt';
                             }
                             if ($tongDiem >= 8.5) {
                                 $diemchu = 'A';
-                            } elseif ($tongDiem >= 7) {
+                            } elseif ($tongDiem >= 8 and $tongDiem <= 8.4) {
+                                $diemchu = 'B+';
+                            } elseif ($tongDiem >= 7 and $tongDiem <= 7.9) {
                                 $diemchu = 'B';
-                            } elseif ($tongDiem >= 5.5) {
-                                $diemchu = 'C';
-                            } elseif ($tongDiem >= 4.0) {
-                                $diemchu = 'D';
-                            } else {
+                            } elseif ($tongDiem >= 6.5 and $tongDiem <= 6.9) {
+                                $diemchu = 'C+';
+                                
+                            }
+                            elseif ($tongDiem >= 5.5 and $tongDiem <= 6.4) {
+                                $diemchu = 'C';} 
+                            elseif ($tongDiem >= 5 and $tongDiem <= 5.4) {
+                                    $diemchu = 'D+';} 
+                            elseif ($tongDiem >= 4 and $tongDiem <= 4.9) {
+                                        $diemchu = 'D';} 
+                            else {
                                 $diemchu = 'F';
                             }
                     ?>

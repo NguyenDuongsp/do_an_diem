@@ -78,5 +78,16 @@ class lophocmodel extends ketnoiDB {
         }
         return $hocphanList; // Trả về mảng chứa danh sách học phần
     }
+    function lophoc_ins1($malop, $mahocphan) {
+      
+            $sql = "INSERT INTO lophoc(malop, mahocphan) VALUES('$malop', '$mahocphan')";
+            return mysqli_query($this->con, $sql);
+    }
+         
+            function lophoc_ins2($magiangvien, $malop,$nh,$hk) {
+        $sql2 = "INSERT INTO phanconggiaovien(magiangvien, malop,namhoc,hocky) VALUES ('$magiangvien', '$malop','$nh','$hk')";
+        return mysqli_query($this->con, $sql2);
+                
+    }
 }
 ?>
