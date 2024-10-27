@@ -1,8 +1,8 @@
 <?php
 
     class app{
-        protected $Controllers='dssinhvien';
-        protected $action='Get_data';
+        protected $Controllers='lophoccontroller';
+        protected $action='get_data_admin';
         protected $params=[];
         function __construct(){
             

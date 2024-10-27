@@ -23,7 +23,7 @@
 
     <form method="post" action="http://localhost/do_an_diem/lophoccontroller/Get_data_admin">
         <div class="content">
-        <table class="table table-striped">
+        <table class="table table-striped" style="width: 1250px; text-align: left;">
                 <tr>
                     <td colspan="9" style="text-align: left;">
                         <h2>THÔNG TIN LỚP HỌC</h2>
