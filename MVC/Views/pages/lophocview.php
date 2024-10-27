@@ -54,8 +54,9 @@
                                 <span class="btntool btn btn-danger">
                                     <a href="http://localhost/do_an_diem/lophoccontroller/xoa/<?php echo $row['malop'] ?>">Xóa</a>
                                 </span> &nbsp;&nbsp;
+                                
                                 <span class="btntool btn btn-success">
-                                    <a href="http://localhost/do_an_diem/lophoccontroller/chuyenhuong?mahocphan=<?php echo $row['mahocphan'] ?>">Chi tiết</a>
+                                    <a href="http://localhost/do_an_diem/diemgv/diemsinhvien_lop/<?php echo $row['malop'] ?>">Chi tiết</a>
                                 </span>
                             </td>
                         </tr>
