@@ -9,11 +9,21 @@ class lophoccontroller extends controller
 
     function Get_data(){
         $this->view("contac_gv", [
+            'page' => 'lophocview_giaovien',
+            'malop' => '',
+            'mahocphan' => '',
+            'dulieu' => $this->lophocModel->lophoc_quygiangvien($_SESSION['ma']),
+            //'mahp' => $this->lophocModel->getHocPhanList()
+        ]);
+    }
+    function Get_data_admin(){
+        $this->view("contac", [
             'page' => 'lophocview',
             'malop' => '',
             'mahocphan' => '',
-            'dulieu' => $this->lophocModel->lophoc_quygiangvien($_SESSION['ma'])
-           // 'dulieu' => $this->lophocModel->lophoc_all()
+            'dulieu' => $this->lophocModel->lophoc_all(),
+            // 'mahocphan_hp' => '',
+            'mahp' => $this->lophocModel->getHocPhanList()
         ]);
     }
 
@@ -25,7 +35,7 @@ class lophoccontroller extends controller
             'mahocphan' => '',
             'tenhocphan' => '',
             'dulieu' => $this->lophocModel->lophoc_quysinhvien($_SESSION['ma'])
-           // 'dulieu' => $this->lophocModel->lophoc_all()
+           // 'mahp' => $this->lophocModel->getHocPhanList()
         ]);
     }
 
@@ -68,7 +78,7 @@ class lophoccontroller extends controller
             ]);
         }
     }
-
+    //xoá gian
     function xoa($malop){
         $kq = $this->lophocModel->lophoc_del($malop);
         if ($kq) {
@@ -76,7 +86,7 @@ class lophoccontroller extends controller
         } else {
             echo "<script>alert('Xóa thất bại!')</script>";
         }
-        $this->view("contac_gv", [
+        $this->view("contac", [
             'page' => 'lophocview',
             'malop' => '',
             'mahocphan' => '',
@@ -85,12 +95,22 @@ class lophoccontroller extends controller
     }
 
     function sua($malop){
-        $dl = $this->lophocModel->lophoc_sua($malop);
-        $this->view("contac_gv", [
+
+        $dl = $this->lophocModel->lophoc_timkiem($malop,'');
+        $this->view("contac", [
             'page' => 'lophocview_sua',
             'dulieu' => $dl
         ]);
     }
+
+
+    // function sua($malop){
+    //     $dl=$this->dssv->sinhvien_timkiem($malop, '');
+    //     $this->view("contac",[
+    //         'page'=>'sinhvien_sua',
+    //         'dulieu'=>$dl
+    //     ]);
+    // }
 
 
     //đây là thêm mới

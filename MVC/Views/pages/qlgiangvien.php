@@ -20,7 +20,7 @@
 <body>
     <form method="post" action="http://localhost/do_an_diem/dsgiangvien/timkiem">
         <div class="conten">
-            <table class="table table-striped">
+        <table class="table table-striped" style="width: 1270px; text-align: left;">
                 <tr>
                     <td colspan="9" style="text-align: left;">
                         <h2>THÔNG TIN GIẢNG VIÊN</h2>

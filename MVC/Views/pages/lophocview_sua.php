@@ -12,7 +12,7 @@
     <title>Quản Lý Lớp Học</title>
 </head>
 <body>
-    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/sua">
+    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/sua_dl">
         <div class="conten">
             <table class="table table-striped">
                 <tr>

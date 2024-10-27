@@ -75,18 +75,17 @@ class dangnhap_c extends controller
 //             case 2:
 //                 $view = 'contac_gv';
 
-//                 $page = 'lophocview';
+//                 $page = 'diemgv_v';
 
-//                 $dl = $this->dsv->diemsinhvien_all($_SESSION['ma']);
+
 //                 break;
 //             case 3:
 //                 $view = 'sv_contact';
 //                 $page = 'diem_sv';
-//                 $dl = $this->dsv->diemsinhvien_lop($malop);
 //                 break;
 //             case 1:
 //                 $view = 'contac';
-//                 $page = 'qlgiangvien';
+//                 $page = 'admin';
 //                 break;
 //             default:
 //                 // Xử lý cho các trường hợp khác nếu cần
