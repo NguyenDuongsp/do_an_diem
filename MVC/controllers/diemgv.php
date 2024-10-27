@@ -1,29 +1,43 @@
 <?php
 class diemgv extends controller
 {
-    protected $dsv;
+    protected $dgv;
     function __construct(){
-        $this->dsv=$this->model('diem_sv_m');
+        $this->dgv=$this->model('diemgv_m');
     }
         function Get_data(){
-            $this->view("sv_contac",[
-                'page'=>'diem_sv',
-                'tenhp'=>'',
-                'dcc'=>'',
-                'gk'=>'',
-                'tl'=>'',
-                'chp'=>'',
-                'lt'=>'',
+            
+            $this->view("contac_gv",[
+                'page'=>'diemgv_v',
+                'tenhp' => '',
+                'dcc' => '',
+                'gk' => '',
+                'tl' => '',
+                'chp' => '',
+                'lt' => '',
+            
                 
-                'dulieu'=>$this->dsv->diemsinhvien_all($_SESSION['ma'])
+                
             ]);
         }
-        
+          function diemsinhvien_lop($malop){
+            $dl = $this->dgv->diemsinhvien_lop($malop);
+        $this->view("contac_gv", [
+            'page' => 'diemgv_v',
+            'tenhp' => '',
+                'dcc' => '',
+                'gk' => '',
+                'tl' => '',
+                'chp' => '',
+                'lt' => '',
+            'dulieu' => $dl
+        ]);
+        }
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];
                 $tsv=$_POST['txttensinhvien'];
-                $dl=$this->dsv->sinhvien_timkiem($msv, $tsv);
+                $dl=$this->dgv->sinhvien_timkiem($msv, $tsv);
                 $this->view("contac", [
                     'page'=>'qlsinhvien',
                     'msv'=>$msv,
@@ -33,95 +47,37 @@ class diemgv extends controller
             }
            
         }
-        function xoa($msv){
-            $kq=$this->dsv->sinhvien_del($msv);
-            if($kq){
-                echo "<script>alert('Xoa thanh cong!')</script>";
-            }
-            else{
-                echo "<script>alert('Xoa that bai!')</script>";
-            }
-            $this->view("contac", [
-                'page'=>'qlsinhvien',
-                'msv'=>'',
-                'tsv'=>'',
-                'dulieu'=>$this->dsv->sinhvien_timkiem('','')
-            ]);
-        }
-        function sua($msv){
-            $dl=$this->dsv->sinhvien_timkiem($msv, '');
-            $this->view("contac",[
-                'page'=>'sinhvien_sua',
-                'dulieu'=>$dl
-            ]);
-        }
-        function themmoi(){
-            if(isset($_POST['btnluu']))
-        {
-            $msv = $_POST['txtmasinhvien'];
-                $tsv = $_POST['txttensinhvien'];
-                $ns = $_POST['txtngaysinh'];
-                $gt = $_POST['txtgioitinh'];
-                $dc = $_POST['txtdiachi'];
-                $email = $_POST['txtemail'];
-                $sdt = $_POST['txtsdt'];
-                $mk = $_POST['txtmakhoa'];
-                $kh = $_POST['txtkhoahoc'];
-            $tm=$this->dsv->checktrungmasv($msv);
-            if($tm){
-                echo "<script>alert('Ma sinh vien da ton tai!')</script>";
-            }
-            else{
-                $kq=$this->dsv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
-                if($kq){
-                    echo "<script>alert('Them moi thanh cong!')</script>";
-                    echo "<script>window.location.href='./dssinhvien.php'</script>";
-                }
-                        else {
-                            echo "<script>alert('Them moi that bai!')</script>";
+        function nhapdiem() {
+            if (isset($_POST['btLuu'])) {
+                $masinhvien = $_POST['txtmasinhvien'];
+                $mahocphan = $_POST['txtmahocphan'];
+                $diemGK = $_POST['txtdiemGK'];
+                $chuyencan = $_POST['txtdiemchuyencan'];
+                $ketthuc = $_POST['txtthiketthuc'];
+                $diemthuchanh = $_POST['txtdiemthuchanh'];
+    
+                for ($i = 0; $i < count($masinhvien); $i++) {
+                    $masv = $masinhvien[$i];
+                    $mahp = $mahocphan[$i];
+                    $gk = $diemGK[$i];
+                    $dcc = $chuyencan[$i];
+                    $chp = $ketthuc[$i];
+                    $tl = $diemthuchanh[$i];
+    
+                    try {
+                        $kq = $this->dgv->ttgv($masv, $mahp, $dcc, $gk, $tl, $chp);
+    
+                        if ($kq) {
+                            echo "<script>alert('Thành công!')</script>";
+                            echo "<script>window.location.href='./dssinhvien.php'</script>";
                         }
-            }
-            
-                    $this->view("contac", [
-                        'page'=>'qlsinhvien',
-                        'msv'=>$msv,
-                        'tsv'=>$tsv,
-                        'ns'=>$ns,
-                        'gt'=>$gt,
-                        'dc'=>$dc,
-                        'em'=>$email,
-                        'sdt'=>$sdt,
-                        'mk'=>$mk,
-                        'kh'=>$kh
-                    ]);
-        }
-    }
-        function sua_dl(){
-         if(isset($_POST['btnluu']))
-            {
-                $msv = $_POST['txtmasinhvien'];
-                $tsv = $_POST['txttensinhvien'];
-                $ns = $_POST['txtngaysinh'];
-                $gt = $_POST['txtgioitinh'];
-                $dc = $_POST['txtdiachi'];
-                $email = $_POST['txtemail'];
-                $sdt = $_POST['txtsdt'];
-                $mk = $_POST['txtmakhoa'];
-                $kh = $_POST['txtkhoahoc'];
-                $kq=$this->dsv->sinhvien_upd($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
-                if($kq){
-                    echo "<script>alert('Sua thanh cong!')</script>";
+                    } catch (Exception $e) {
+                        $errorMessage = $e->getMessage();
+                        echo "<script>alert('$errorMessage'); window.history.back();</script>";
+                    }
                 }
-                else{
-                    echo "<script>alert('Sua thanh cong!')</script>";
-                }
-                $this->view("contac", [
-                    'page'=>'qlsinhvien',
-                    'msv'=>'',
-                    'tsv'=>'',
-                    'dulieu'=>$this->dsv->sinhvien_timkiem('','')
-                ]);
             }
         }
+    
 }
 ?>

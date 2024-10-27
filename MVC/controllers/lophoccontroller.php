@@ -8,11 +8,12 @@ class lophoccontroller extends controller
     }
 
     function Get_data(){
-        $this->view("contac", [
+        $this->view("contac_gv", [
             'page' => 'lophocview',
             'malop' => '',
             'mahocphan' => '',
             'dulieu' => $this->lophocModel->lophoc_quygiangvien($_SESSION['ma'])
+           // 'dulieu' => $this->lophocModel->lophoc_all()
         ]);
     }
 
