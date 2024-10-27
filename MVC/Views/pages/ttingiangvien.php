@@ -24,7 +24,7 @@
         <form method="post" action="http://localhost/do_an_diem/giangvienx/get_data">
          
             <div class="conten">
-            <table>
+            <table class="table table-striped" style="width: 1270px; text-align: left;">
                 <tr>
                     <td colspan="2"><h2>Thông tin giảng viên</h2></td>
                 </tr>
