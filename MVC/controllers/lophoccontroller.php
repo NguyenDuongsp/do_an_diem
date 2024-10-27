@@ -48,7 +48,7 @@ class lophoccontroller extends controller
             $malop = $_POST['txtmalop'];
             $mahocphan = $_POST['txtmahocphan'];
             $dl = $this->lophocModel->lophoc_timkiem($malop, $mahocphan);
-            $this->view("contac", [
+            $this->view("contac_gv", [
                 'page' => 'lophocview',
                 'malop' => $malop,
                 'mahocphan' => $mahocphan,
@@ -73,8 +73,8 @@ class lophoccontroller extends controller
     }
 
     function sua($malop){
-        $dl = $this->lophocModel->lophoc_timkiem($malop, '');
-        $this->view("contac", [
+        $dl = $this->lophocModel->lophoc_sua($malop);
+        $this->view("contac_gv", [
             'page' => 'lophocview_sua',
             'dulieu' => $dl
         ]);

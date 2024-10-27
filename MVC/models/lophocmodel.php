@@ -46,5 +46,11 @@ class lophocmodel extends ketnoiDB {
         $sql = "UPDATE lophoc SET mahocphan='$mahocphan' WHERE malop='$malop'";
         return mysqli_query($this->con, $sql);
     }
+
+    // sửa lớp học
+    function lophoc_sua($malop) {
+        $sql = "SELECT * FROM lophoc WHERE malop LIKE '%$malop%' ";
+        return mysqli_query($this->con, $sql);
+    }
 }
 ?>
