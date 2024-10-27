@@ -17,6 +17,18 @@ class lophoccontroller extends controller
         ]);
     }
 
+    //đây là sinh viên lấy dữ liệu lớp học
+    function Get_data_sv(){
+        $this->view("sv_contact", [
+            'page' => 'lophoc_svview',
+            'malop' => '',
+            'mahocphan' => '',
+            'tenhocphan' => '',
+            'dulieu' => $this->lophocModel->lophoc_quysinhvien($_SESSION['ma'])
+           // 'dulieu' => $this->lophocModel->lophoc_all()
+        ]);
+    }
+
     function Get_data1($magiaovien) {
         $this->view('contac', [
             'page' => 'lophocview',
@@ -64,7 +76,7 @@ class lophoccontroller extends controller
         } else {
             echo "<script>alert('Xóa thất bại!')</script>";
         }
-        $this->view("contac", [
+        $this->view("contac_gv", [
             'page' => 'lophocview',
             'malop' => '',
             'mahocphan' => '',
@@ -80,10 +92,14 @@ class lophoccontroller extends controller
         ]);
     }
 
+
+    //đây là thêm mới
+
     function themmoi(){
         if (isset($_POST['btnluu'])) {
             $malop = $_POST['txtmalop'];
             $mahocphan = $_POST['txtmahocphan'];
+            // $tenhocphan = $_POST['txttenhocphan'];
 
             $tm = $this->lophocModel->checktrungmalop($malop);
             if ($tm) {
@@ -96,9 +112,11 @@ class lophoccontroller extends controller
                     echo "<script>alert('Thêm mới thất bại!')</script>";
                 }
             }
+// sửa ở đây nữa
 
-            $this->view("contac", [
-                'page' => 'lophocview',
+
+            $this->view("sv_contact", [
+                'page' => 'lophoc_themmoi',
                 'malop' => $malop,
                 'mahocphan' => $mahocphan
             ]);
