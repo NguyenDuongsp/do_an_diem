@@ -21,7 +21,7 @@
 
 <body>
 
-    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/Get_data_admin">
+    <form method="post" action="http://localhost/do_an_diem/lophoccontroller/Get_data">
         <div class="content">
         <table class="table table-striped">
                 <tr>
@@ -53,12 +53,12 @@
                             <td><?php echo $row['malop'] ?></td>
                             <td><?php echo $row['mahocphan'] ?></td>
                             <td>
-                                <span class="btntool btn btn-primary">
+                                <!-- <span class="btntool btn btn-primary">
                                     <a href="http://localhost/do_an_diem/lophoccontroller/sua/<?php echo $row['malop'] ?>">Sửa</a>
                                 </span> &nbsp;&nbsp;
                                 <span class="btntool btn btn-danger">
                                     <a href="http://localhost/do_an_diem/lophoccontroller/xoa/<?php echo $row['malop'] ?>">Xóa</a>
-                                </span> &nbsp;&nbsp;
+                                </span> &nbsp;&nbsp; -->
                                 <span class="btntool btn btn-success">
                                     <a href="http://localhost/do_an_diem/lophoccontroller/chuyenhuong?mahocphan=<?php echo $row['mahocphan'] ?>">Chi tiết</a>
                                 </span>

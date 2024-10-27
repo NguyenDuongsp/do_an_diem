@@ -175,7 +175,7 @@
                         </td>
                         </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                         <td class="col1">Mã khoa</td>
                         <td class="col2">
                         <select class="form-control" name="txtmakhoa" style="width: 450px;">
@@ -189,8 +189,8 @@
                                 ?>
                             </select>
                         </td>
-                    </tr> -->
-                    <tr>
+                    </tr>
+                    <!-- <tr>
                         <td class="col1">Mã Khoa</td>
                         <td class="col2">
                             <select class="form-control" name="makhoa" id="" style="width:450px;">
@@ -206,7 +206,7 @@
                                 ?>
                             </select>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td class="col1">Khóa Học</td>
                         <td class="col2">
