@@ -54,9 +54,8 @@
                                 <span class="btntool btn btn-danger">
                                     <a href="http://localhost/do_an_diem/lophoccontroller/xoa/<?php echo $row['malop'] ?>">Xóa</a>
                                 </span> &nbsp;&nbsp;
-                                
                                 <span class="btntool btn btn-success">
-                                    <a href="http://localhost/do_an_diem/diemgv/diemsinhvien_lop/<?php echo $row['malop'] ?>">Chi tiết</a>
+                                    <a href="http://localhost/do_an_diem/lophoccontroller/chuyenhuong?mahocphan=<?php echo $row['mahocphan'] ?>">Chi tiết</a>
                                 </span>
                             </td>
                         </tr>
@@ -69,34 +68,47 @@
     </form>
 
     <div class="modal js-modal">
-        <div class="modal-container js-modal-container">
-            <div class="modal-close js-modal-close">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <form method="post" action="http://localhost/do_an_diem/dslophoc/themmoi" enctype="multipart/form-data">
-                <table class="table table-borderless">
-                    <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <h5>CẬP NHẬT THÔNG TIN LỚP HỌC</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col1">Mã Lớp</td>
-                        <td class="col2">
-                            <input class="form-control" type="text" name="txtmalop" value="<?php echo $malop ?>" style="width:450px;">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col1">Mã Học Phần</td>
-                        <td class="col2">
-                            <input class="form-control" type="text" name="txtmahocphan" value="<?php echo $mahocphan ?>" style="width:450px;">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
+            <i class="fa-solid fa-xmark"></i>
         </div>
+        <form method="post" action="http://localhost/do_an_diem/lophoccontroller/themmoi" enctype="multipart/form-data">
+            <table class="table table-borderless">
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <h5>CẬP NHẬT THÔNG TIN LỚP HỌC</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">Mã Lớp</td>
+                    <td class="col2">
+                        <input class="form-control" type="text" name="txtmalop" value="<?php echo $malop; ?>" style="width:450px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col1">Mã Học Phần</td>
+                    <td class="col2">
+                        <select class="form-control" name="txtmahocphan" style="width:450px;">
+                            <option value="">--Chọn mã học phần--</option>
+                            <?php
+                            // Sử dụng biến $mahp đã được truyền từ controller
+                            foreach ($mahp as $row) {
+                                $selected = ($row['mahocphan'] == $mahocphan) ? 'selected' : '';
+                                echo "<option value='" . $row['mahocphan'] . "' $selected>" . $row['tenhocphan'] . " (" . $row['mahocphan'] . ")</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
-
+</div>
     <script>
         const buyBtn = document.querySelector('.js-buy-ticket');
         const modal = document.querySelector('.js-modal');

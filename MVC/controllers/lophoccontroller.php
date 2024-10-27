@@ -13,7 +13,7 @@ class lophoccontroller extends controller
             'malop' => '',
             'mahocphan' => '',
             'dulieu' => $this->lophocModel->lophoc_quygiangvien($_SESSION['ma'])
-           // 'dulieu' => $this->lophocModel->lophoc_all()
+            'mahp' => $this->lophocModel->getHocPhanList()
         ]);
     }
 
@@ -25,7 +25,7 @@ class lophoccontroller extends controller
             'mahocphan' => '',
             'tenhocphan' => '',
             'dulieu' => $this->lophocModel->lophoc_quysinhvien($_SESSION['ma'])
-           // 'dulieu' => $this->lophocModel->lophoc_all()
+           // 'mahp' => $this->lophocModel->getHocPhanList()
         ]);
     }
 

@@ -82,7 +82,7 @@ class diem_sv_c extends controller
                 break;
             case 1:
                 $view = 'contac';
-                $page = 'admin';
+                $page = 'lophocview';
                 break;
             default:
                 // Xử lý cho các trường hợp khác nếu cần
