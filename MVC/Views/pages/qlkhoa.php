@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost/do_an_diem/dskhoa/timkiem">
+    <form method="post" action="http://localhost/do_an_diem/dskhoa/get_data">
         <div class="conten">
             <table class="table table-striped">
                 <tr>

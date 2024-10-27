@@ -6,7 +6,21 @@ class diem_sv_c extends controller
         $this->dsv=$this->model('diem_sv_m');
     }
         
-        
+    function Get_data(){
+            
+        $this->view("sv_contact",[
+            'page'=>'diem_sv',
+            'tenhp' => '',
+            'dcc' => '',
+            'gk' => '',
+            'tl' => '',
+            'chp' => '',
+            'lt' => '',
+            'dulieu' => $this->dsv->diemsinhvien_all($_SESSION['ma'])
+            
+            
+        ]);
+    }
         function timkiem(){
             if(isset($_POST['btntimkiem'])){
                 $msv=$_POST['txtmasinhvien'];

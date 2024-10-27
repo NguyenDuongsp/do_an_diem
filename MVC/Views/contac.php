@@ -28,15 +28,15 @@
                             </div>
                         <ul class="menu">
                         <li class="menu__item"  > 
-                                <a href="./hocphan_gv_tk.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/dskhoa/get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-network-wired"></i>
-                                    <span>Học Phần</span>
+                                    <span>Khoa</span>
                                 </a>
                             </li>
                             <li class="menu__item"> 
-                                <a href="./quy_thongtingiangvien.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/dsgiangvien" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span>Thông tin giảng viên</span>
+                                        <span>Danh sách giảng viên</span>
                                 </a>
                                
                             </li>
@@ -48,9 +48,9 @@
                                
                             </li>
                             <li class="menu__item"> 
-                                <a href="./nhapdiem.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/dsgiangvien" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span> Nhập điểm </span>
+                                        <span> Lớp Học </span>
                                 </a>
                                
                             </li>

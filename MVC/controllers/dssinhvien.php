@@ -67,43 +67,54 @@ class dssinhvien extends controller
                 'dulieu'=>$dl
             ]);
         }
-        function themmoi(){
-            $this->view("contac",[
-                'page'=>'qlsinhvien',
-                        
-                        'khoa'=> $this->dssv->makhoa()
-                    ]);
-            if(isset($_POST['btnluu']))
-        {
-           
-            $msv = $_POST['txtmasinhvien'];
+        function themmoi() {
+            $data['khoa'] = $this->dssv->makhoa();
+        
+            if (isset($_POST['btnluu'])) {
+                $msv = $_POST['txtmasinhvien'];
                 $tsv = $_POST['txttensinhvien'];
                 $ns = $_POST['txtngaysinh'];
                 $gt = $_POST['txtgioitinh'];
                 $dc = $_POST['txtdiachi'];
                 $email = $_POST['txtemail'];
                 $sdt = $_POST['txtsdt'];
-                $mk = $_POST['txtmakhoa'];
+                $mk = $_POST['makhoa'];
                 $kh = $_POST['txtkhoahoc'];
-            $tm=$this->dssv->checktrungmasv($msv);
-            
-            if($tm){
-                echo "<script>alert('Ma sinh vien da ton tai!')</script>";
-            }
-            else{
-                $kq=$this->dssv->sinhvien_ins($msv, $tsv, $ns,$gt, $dc, $email,$sdt, $mk, $kh);
-                if($kq){
-                    echo "<script>alert('Them moi thanh cong!')</script>";
-                    echo "<script>window.location.href='./dssinhvien.php'</script>";
+                $tm = $this->dssv->checktrungmasv($msv);
+        
+                if ($tm) {
+                    echo "<script>alert('Mã sinh viên đã tồn tại!')</script>";
+                } else {
+                    $kq = $this->dssv->sinhvien_ins($msv, $tsv, $ns, $gt, $dc, $email, $sdt, $mk, $kh);
+                    if ($kq) {
+                        echo "<script>alert('Thêm mới thành công!')</script>";
+                        echo "<script>window.location.href='./dssinhvien.php'</script>";
+                    } else {
+                        echo "<script>alert('Thêm mới thất bại!')</script>";
+                    }
                 }
-                        else {
-                            echo "<script>alert('Them moi that bai!')</script>";
-                        }
+        
+                $this->view("contac", [
+                    'page' => 'qlsinhvien',
+                    'msv' => $msv,
+                    'tsv' => $tsv,
+                    'ns' => $ns,
+                    'gt' => $gt,
+                    'dc' => $dc,
+                    'em' => $email,
+                    'sdt' => $sdt,
+                    'mk' => $mk,
+                    'kh' => $kh,
+                    'khoa' => $data['khoa']
+                ]);
+            } else {
+                $this->view("contac", [
+                    'page' => 'qlsinhvien',
+                    'khoa' => $data['khoa']
+                ]);
             }
-            
-                    
         }
-    }
+        
         function sua_dl(){
          if(isset($_POST['btnluu']))
             {

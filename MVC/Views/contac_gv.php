@@ -27,11 +27,12 @@
                             <img class="logo-web__img" src="/do_an_diem/Public/img/logo5.jpg" alt="">
                         </div>
                         <ul class="menu">
-                        <li class="menu__item"  > 
-                                <a href="http://localhost/do_an_diem/dangnhap_c/dangnhap_1" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-solid fa-network-wired"></i>
-                                    <span>Học Phần</span>
+                        <li class="menu__item"> 
+                                <a href="http://localhost/do_an_diem/lophoccontroller/get_data" class="menu__item-link">
+                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
+                                        <span> Lớp học</span>
                                 </a>
+                               
                             </li>
                             <li class="menu__item"> 
                                 <a href="http://localhost/do_an_diem/giangvienx/get_data" class="menu__item-link">
@@ -40,14 +41,8 @@
                                 </a>
                                
                             </li>
-                            <li class="menu__item"> 
-                                <a href="http://localhost/do_an_diem/lophoccontroller/get_data" class="menu__item-link">
-                                <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span> Điểm</span>
-                                </a>
-                               
-                            </li>
-                            <li class="menu__item"> 
+                            
+                            <!-- <li class="menu__item"> 
                                 <a href="./nhapdiem.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
                                         <span> Nhập điểm </span>
@@ -55,11 +50,11 @@
                                
                             </li>
                             <!-- thêm chữ s -->
-                            <li class="menu__item"> 
+                            <!-- <li class="menu__item"> 
                                 <a href="sinhvien.php" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-people-group fa-sm"></i>
-                                     <span> Sinh Viên</span>
-                                </a>
+                                     <span> Sinh Viên</span> -->
+                                </a> -->
                                 <!-- <ul class="sub-menu">
                                     <li class="sub-menu-item"> 
                                         <a href="#" class="menu__item-link">

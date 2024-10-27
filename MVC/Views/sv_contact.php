@@ -61,14 +61,14 @@
                                 </a>
                             </li>
                             <li class="menu__item"> 
-                                <a href="./sv.ds_gv.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/sinhvien_sv/Get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
-                                        <span>Thông tin giảng viên</span>
+                                        <span>Thông tin sinh viên</span>
                                 </a>
                                
                             </li>
                             <li class="menu__item"> 
-                                <a href="./diem_sv.php" class="menu__item-link">
+                                <a href="http://localhost/do_an_diem/diem_sv_c/Get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-regular fa-clipboard"></i>
                                         <span> Điểm</span>
                                 </a>
@@ -82,11 +82,11 @@
                                
                             </li> -->
                             <!-- thêm chữ s -->
-                            <li class="menu__item"> 
+                            <!-- <li class="menu__item"> 
                                 <a href="http://localhost/do_an_diem/sinhvien_sv/get_data" class="menu__item-link">
                                 <i class="menu__item-link-icon fa-solid fa-people-group fa-sm"></i>
                                      <span> Sinh Viên</span>
-                                </a>
+                                </a> -->
                                 <!-- <ul class="sub-menu">
                                     <li class="sub-menu-item"> 
                                         <a href="#" class="menu__item-link">

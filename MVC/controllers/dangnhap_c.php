@@ -25,16 +25,19 @@ class dangnhap_c extends controller
                     $tenSinhVien = $userData['tensinhvien'];
                     $masv = $userData['taikhoansv'];
                     $_SESSION['ma'] = $masv;
+                    header('Location: http://localhost/do_an_diem/diem_sv_c/get_data');
                 }
                 elseif($userData['quyen']==2){
                     $tenSinhVien = $userData['tengiangvien'];
                     $ma = $userData['taikhoan'];
                     $_SESSION['ma'] = $ma;
+                    header('Location: http://localhost/do_an_diem/lophoccontroller/get_data');
                 }
                 else{
                     $tenSinhVien = $userData['tengiangvien'];
                     $ma = $userData['taikhoan'];
                     $_SESSION['ma'] = $ma;
+                    header('Location: http://localhost/do_an_diem/dskhoa/get_data');
                 }
                 // Lấy tên sinh viên từ thông tin người dùng
                 
@@ -58,47 +61,48 @@ class dangnhap_c extends controller
     }
 }
 
-class diem_sv_c extends controller
-{
-    protected $dsv;
-    function __construct(){
-        $this->dsv=$this->model('diem_sv_m');
-    }
-    function Get_data() {
-        $quyen = $_SESSION['user_data']['quyen'];
-        $view = '';
+// class diem_sv_c extends controller
+// {
+//     protected $dsv;
+//     function __construct(){
+//         $this->dsv=$this->model('diem_sv_m');
+//     }
+//     function Get_data() {
+//         $quyen = $_SESSION['user_data']['quyen'];
+//         $view = '';
 
-        switch ($quyen) {
-            case 2:
-                $view = 'contac_gv';
+//         switch ($quyen) {
+//             case 2:
+//                 $view = 'contac_gv';
 
-                $page = 'diemgv_v';
+//                 $page = 'lophocview';
 
+//                 $dl = $this->dsv->diemsinhvien_all($_SESSION['ma']);
+//                 break;
+//             case 3:
+//                 $view = 'sv_contact';
+//                 $page = 'diem_sv';
+//                 $dl = $this->dsv->diemsinhvien_lop($malop);
+//                 break;
+//             case 1:
+//                 $view = 'contac';
+//                 $page = 'qlgiangvien';
+//                 break;
+//             default:
+//                 // Xử lý cho các trường hợp khác nếu cần
+//                 break;
+//         }
 
-                break;
-            case 3:
-                $view = 'sv_contact';
-                $page = 'diem_sv';
-                break;
-            case 1:
-                $view = 'contac';
-                $page = 'admin';
-                break;
-            default:
-                // Xử lý cho các trường hợp khác nếu cần
-                break;
-        }
-
-        $this->view($view, [
-            'page' => $page,
-            'tenhp' => '',
-            'dcc' => '',
-            'gk' => '',
-            'tl' => '',
-            'chp' => '',
-            'lt' => '',
-            'dulieu' => $this->dsv->diemsinhvien_all($_SESSION['ma'])
-        ]);
-    }
-        }
+//         $this->view($view, [
+//             'page' => $page,
+//             'tenhp' => '',
+//             'dcc' => '',
+//             'gk' => '',
+//             'tl' => '',
+//             'chp' => '',
+//             'lt' => '',
+//             'dulieu' =>$dl
+//         ]);
+//     }
+//         }
 ?>
