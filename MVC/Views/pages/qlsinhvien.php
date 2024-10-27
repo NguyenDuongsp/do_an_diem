@@ -20,8 +20,8 @@
 
 
 <body>
-   
-    <form method="post" action="http://localhost/do_an_diem/dssinhvien/timkiem">
+
+    <form method="post" action="http://localhost/do_an_diem/dssinhvien/Get_data">
         <div class="content">
             <table class="table table-striped">
                 <tr>
@@ -33,13 +33,15 @@
                     <td colspan="9" class="cold2"></td>
                 </tr>
                 <tr>
-                    <td class="col1">Mã Khoa </td>
+                    <td class="col1 ">Mã Khoa </td>
                     <td class="col2">
                         <select class="form-control" name="makhoa" id="">
                             <option value="">--Chọn mã khoa--</option>
                             <?php
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
+                            if (isset($data['khoa']) && $data['khoa'] != null) {
+                                $i = 0;
+                                while ($row = mysqli_fetch_array($data['khoa'])) {
+
                                     echo "<option value='" . $row['makhoa'] . "'>" . $row['makhoa'] . "</option>";
                                 }
                             }
@@ -47,64 +49,64 @@
                         </select>
                     </td>
                     <td>
-                        <input type="submit" name="btxem" value="xem">
+                        <input type="submit" name="btnxem" value="xem">
 
-                    </tr>
-                    <tr>
-                        <th>STT</th>
-                        <th>Mã sinh viên</th>
-                        <th>Tên sinh viên</th>
-                        <th>Ngày sinh</th>
-                        <th>Giới tính</th>
-                        <th>Địa chỉ</th>
-                        <th>Email</th>
-                        <th>SĐT</th>
-                        <th>Mã Khoa</th>
-                        <th>Khóa Học</th>
-                        <th>Công cụ</th>
-                    </tr>
-                    <?php
-                    $msv = '';
-                    $tsv = '';
-                    $ns = '';
-                    $gt = '';
-                    $dc = '';
-                    $email = '';
-                    $sdt = '';
-                    $mk = '';
-                    $kh = '';
+                </tr>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã sinh viên</th>
+                    <th>Tên sinh viên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Địa chỉ</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Mã Khoa</th>
+                    <th>Khóa Học</th>
+                    <th>Công cụ</th>
+                </tr>
+                <?php
+                $msv = '';
+                $tsv = '';
+                $ns = '';
+                $gt = '';
+                $dc = '';
+                $email = '';
+                $sdt = '';
+                $mk = '';
+                $kh = '';
 
 
-                    //b3: xử lý kết quả truy vấn(hiển thị mảng $data lên bảng)
-                    if (isset($data['dulieu']) && $data['dulieu'] != null) {
-                        $i = 0;
-                        while ($row = mysqli_fetch_array($data['dulieu'])) {
-                    ?>
-                            <tr>
-                                <td><?php echo ++$i ?></td>
-                                <td><?php echo $row['masinhvien'] ?></td>
-                                <td><?php echo $row['tensinhvien'] ?></td>
-                                <td><?php echo date('d/m/Y', strtotime($row['ngaysinh'])) ?></td>
-                                <td><?php echo $row['gioitinh'] ?></td>
-                                <td><?php echo $row['diachi'] ?></td>
-                                <td><?php echo $row['email'] ?></td>
-                                <td><?php echo $row['sdt'] ?></td>
-                                <td><?php echo $row['makhoa'] ?></td>
-                                <td><?php echo $row['khoahoc'] ?></td>
-                                <td>
-                                    <span class="btntool btn btn-primary">
-                                        <a href="http://localhost/do_an_diem/dssinhvien/sua/<?php echo $row['masinhvien'] ?>">Sửa</a>
-                                    </span> &nbsp;&nbsp;
-                                    <span class="btntool btn btn-danger">
-                                        <a href="http://localhost/do_an_diem/dssinhvien/xoa/<?php echo $row['masinhvien'] ?>">Xóa</a>
-                                    </span>
-                                </td>
-                            </tr>
-                    <?php
-                        }
+                //b3: xử lý kết quả truy vấn(hiển thị mảng $data lên bảng)
+                if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                    $i = 0;
+                    while ($row = mysqli_fetch_array($data['dulieu'])) {
+                ?>
+                        <tr>
+                            <td><?php echo ++$i ?></td>
+                            <td><?php echo $row['masinhvien'] ?></td>
+                            <td><?php echo $row['tensinhvien'] ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($row['ngaysinh'])) ?></td>
+                            <td><?php echo $row['gioitinh'] ?></td>
+                            <td><?php echo $row['diachi'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['sdt'] ?></td>
+                            <td><?php echo $row['makhoa'] ?></td>
+                            <td><?php echo $row['khoahoc'] ?></td>
+                            <td>
+                                <span class="btntool btn btn-primary">
+                                    <a href="http://localhost/do_an_diem/dssinhvien/sua/<?php echo $row['masinhvien'] ?>">Sửa</a>
+                                </span> &nbsp;&nbsp;
+                                <span class="btntool btn btn-danger">
+                                    <a href="http://localhost/do_an_diem/dssinhvien/xoa/<?php echo $row['masinhvien'] ?>">Xóa</a>
+                                </span>
+                            </td>
+                        </tr>
+                <?php
                     }
-                    //kết thúc b3
-                    ?>
+                }
+                //kết thúc b3
+                ?>
             </table>
         </div>
     </form>
@@ -174,29 +176,42 @@
                         </td>
                     </tr>
                     <tr>
-    <td class="col1">Mã Khoa</td>
-    <td class="col2">
-        <select class="form-control" name="txtmakhoa" style="width:450px;">
-            <option value="">--Chọn mã khoa--</option>
-            <?php
-            // Lặp qua dữ liệu để tạo các option trong combobox
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $selected = ($row['makhoa'] == $mk) ? 'selected' : '';
-                    echo "<option value='" . $row['makhoa'] . "' $selected>" . $row['makhoa'] . "</option>";
-                }
-            }
-            ?>
-        </select>
-    </td>
-</tr>
+                        <td class="col1">Mã khoa</td>
+                        <td class="col2">
+                        <select class="form-control" name="txtmakhoa" style="width: 450px;">
+                                <option value="">--Chọn Mã Khoa-</option>
+                                <?php
+                                $makhoa_options = array("K01", "K02","K03", "K04","K05", "K06","K07", "K08"); // Thay thế bằng danh sách tùy chọn thực tế
+                                foreach ($makhoa_options as $option) {
+                                    $selected = ($option == $mk) ? 'selected' : '';
+                                    echo "<option value='$option' $selected>$option</option>";
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td class="col1">Mã Khoa</td>
+                        <td class="col2">
+                            <select class="form-control" name="makhoa" id="" style="width:450px;">
+                                <option value="">--Chọn mã khoa--</option>
+                                <?php
+                                if (isset($data['khoa']) && $data['khoa'] != null) {
+                                    $i = 0;
+                                    while ($row = mysqli_fetch_array($data['khoa'])) {
+
+                                        echo "<option value='" . $row['makhoa'] . "'>" . $row['makhoa'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr> -->
                     <tr>
                         <td class="col1">Khóa Học</td>
                         <td class="col2">
                             <input class="form-control" type="text" name="txtkhoahoc" value="<?php echo $kh ?>" style="width:450px;">
                         </td>
-
-
                     </tr>
                     <tr>
                         <td class="col1"></td>
