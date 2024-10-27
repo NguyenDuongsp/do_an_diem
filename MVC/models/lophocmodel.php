@@ -46,5 +46,36 @@ class lophocmodel extends ketnoiDB {
         $sql = "UPDATE lophoc SET mahocphan='$mahocphan' WHERE malop='$malop'";
         return mysqli_query($this->con, $sql);
     }
+
+    // sửa lớp học
+    function lophoc_sua($malop) {
+        $sql = "SELECT * FROM lophoc WHERE malop LIKE '%$malop%' ";
+        return mysqli_query($this->con, $sql);
+    }
+
+    function lophoc_quysinhvien($masinhvien) {
+        $sql = "SELECT l.*, h.tenhocphan
+                FROM lophoc l
+                JOIN diem d ON l.mahocphan = d.mahocphan
+                JOIN hocphan h ON l.mahocphan = h.mahocphan
+                WHERE d.masv = '$masinhvien';";
+        // $sql = "SELECT  FROM lophoc WHERE magiaovien = '$magiaovien'";
+        return mysqli_query($this->con, $sql);
+    }
+
+    //học phần combobox
+    
+    function getHocPhanList() {
+        $sql = "SELECT mahocphan, tenhocphan FROM hocphan";
+        $result = mysqli_query($this->con, $sql);
+        
+        $hocphanList = [];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $hocphanList[] = $row; // Lưu từng bản ghi vào mảng
+            }
+        }
+        return $hocphanList; // Trả về mảng chứa danh sách học phần
+    }
 }
 ?>
